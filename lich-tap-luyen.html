@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kế hoạch tập luyện & ăn uống</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f3;--white:#ffffff;--surf:#f0eee9;--brd:#e2dfd6;--brd2:#ccc9bf;
+  --txt:#18170f;--mut:#8c897f;--mut2:#b8b4a8;
+  --grn:#1a7a4a;--grn-bg:#edf7f1;--grn-bd:#b5e2ca;
+  --blu:#1a5ca8;--blu-bg:#edf2fc;--blu-bd:#b5d0f5;
+  --amb:#9a580a;--amb-bg:#fef5e6;--amb-bd:#f5d290;
+  --red:#b53030;--red-bg:#fdf0ef;--red-bd:#f5bcb8;
+  --tel:#0a7070;--tel-bg:#edf6f6;--tel-bd:#a8dedd;
+  --acc:#4c3ebc;--acc-bg:#f0eefa;--acc-bd:#c4bcf0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);font-size:14px;line-height:1.6}
+
+/* HEADER */
+.hdr{background:var(--white);border-bottom:1.5px solid var(--brd);padding:32px 40px 24px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ey{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
+h1{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--acc)}
+.hs{display:flex;gap:22px;flex-wrap:wrap}
+.hsc{text-align:right}
+.hsv{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;line-height:1}
+.hsl{font-size:11px;color:var(--mut);margin-top:3px}
+
+/* NAV */
+.nav{background:var(--white);border-bottom:1.5px solid var(--brd);padding:0 40px;display:flex;overflow-x:auto;gap:0}
+.nb{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--mut);background:none;border:none;border-bottom:2.5px solid transparent;padding:12px 16px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s;margin-bottom:-1.5px}
+.nb:hover{color:var(--txt)}
+.nb.on{color:var(--acc);border-bottom-color:var(--acc)}
+
+/* CONTENT */
+.main{padding:24px 40px 60px}
+.pnl{display:none}.pnl.on{display:block}
+.stl{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut2);margin:24px 0 12px}
+.stl:first-child{margin-top:0}
+
+/* BADGE */
+.bdg{display:inline-flex;align-items:center;gap:3px;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid transparent}
+.bg{background:var(--grn-bg);color:var(--grn);border-color:var(--grn-bd)}
+.bb{background:var(--blu-bg);color:var(--blu);border-color:var(--blu-bd)}
+.ba{background:var(--amb-bg);color:var(--amb);border-color:var(--amb-bd)}
+.br{background:var(--red-bg);color:var(--red);border-color:var(--red-bd)}
+.bt{background:var(--tel-bg);color:var(--tel);border-color:var(--tel-bd)}
+.bx{background:var(--surf);color:var(--mut);border-color:var(--brd)}
+.bac{background:var(--acc-bg);color:var(--acc);border-color:var(--acc-bd)}
+
+/* STAT GRID */
+.sgr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.sc{background:var(--white);border:1.5px solid var(--brd);border-radius:12px;padding:14px 16px}
+.sv{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1}
+.sl{font-size:11px;color:var(--mut);margin-top:5px}
+
+/* WEEK GRID */
+.wgr{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin-bottom:24px}
+.dc{background:var(--white);border:1.5px solid var(--brd);border-radius:12px;padding:12px 10px;transition:box-shadow .2s}
+.dc:hover{box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.dc.cb{border-color:var(--blu-bd);background:var(--blu-bg)}
+.dc.cg{border-color:var(--grn-bd);background:var(--grn-bg)}
+.dc.ca{border-color:var(--amb-bd);background:var(--amb-bg)}
+.dn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);margin-bottom:6px}
+.di{font-size:22px;margin-bottom:5px;line-height:1}
+.dt{font-size:12px;font-weight:600;color:var(--txt);margin-bottom:3px;line-height:1.3}
+.ds{font-size:11px;color:var(--mut);line-height:1.4}
+
+/* RULE GRID */
+.rgr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.rc{background:var(--white);border:1.5px solid var(--brd);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.ri{font-size:20px;flex-shrink:0;line-height:1;margin-top:2px}
+.rtl{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:2px}
+.rsl{font-size:11px;color:var(--mut);line-height:1.4}
+
+/* TABLE WRAP */
+.tw{overflow-x:auto;background:var(--white);border:1.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);padding:9px 14px;text-align:left;border-bottom:1.5px solid var(--brd);background:var(--surf);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--brd);transition:background .15s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg)}
+tbody tr.grp td{background:var(--acc-bg);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding:7px 14px;border-bottom:1px solid var(--acc-bd)}
+td{padding:9px 14px;color:var(--txt);vertical-align:middle;line-height:1.5}
+td.tm{color:var(--mut);font-size:12px}
+td.tr{text-align:right;font-family:'Syne',sans-serif;font-size:11px;color:var(--mut);white-space:nowrap}
+td.ts{color:var(--blu);font-weight:600;white-space:nowrap}
+td.trst{color:var(--mut);font-size:11px}
+td.tic{font-size:18px;width:34px;text-align:center;padding-right:4px}
+
+/* VIDEO LINK */
+.vlink{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:600;background:#fff0f0;color:#c00;border:1px solid #ffc0c0;text-decoration:none;white-space:nowrap;transition:background .15s}
+.vlink:hover{background:#ffe0e0}
+.vlink svg{width:12px;height:12px;flex-shrink:0}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#000;border-radius:14px;overflow:hidden;width:min(720px,95vw);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.modal-head{background:#111;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.modal-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff}
+.modal-close{background:none;border:none;color:#888;font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;border-radius:4px}
+.modal-close:hover{color:#fff;background:#333}
+.modal-body{position:relative;padding-top:56.25%}
+.modal-body iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* SUB TABS */
+.stabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.stb{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1.5px solid var(--brd);background:var(--white);color:var(--mut);cursor:pointer;transition:all .15s}
+.stb:hover{border-color:var(--brd2);color:var(--txt)}
+.stb.on{background:var(--acc-bg);border-color:var(--acc-bd);color:var(--acc)}
+.sp{display:none}.sp.on{display:block}
+
+/* MEAL CARD */
+.mc{background:var(--white);border:1.5px solid var(--brd);border-radius:13px;overflow:hidden;margin-bottom:9px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.mh{padding:9px 14px;background:var(--surf);border-bottom:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mtl{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--mut)}
+.mr{display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:1px solid var(--brd);font-size:13px}
+.mr:last-child{border-bottom:none}
+.mr.tot{background:var(--tel-bg);font-weight:600}
+.mr.swp{background:var(--amb-bg);font-size:12px;color:var(--amb);font-style:italic;border-color:var(--amb-bd)}
+.mr.nrt{background:var(--red-bg);font-size:12px;color:var(--red);border-color:var(--red-bd)}
+.mico{font-size:17px;flex-shrink:0;width:23px;text-align:center;line-height:1}
+.mnm{flex:1}
+.mkcal{font-family:'Syne',sans-serif;font-size:11px;color:var(--mut);white-space:nowrap;margin-left:auto}
+.mr.tot .mkcal{color:var(--tel);font-weight:700}
+
+/* WORKOUT */
+.woc{background:var(--white);border:1.5px solid var(--brd);border-radius:13px;overflow:hidden;margin-bottom:9px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.woh{padding:11px 14px;background:var(--surf);border-bottom:1.5px solid var(--brd);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.wot{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--txt)}
+.wt{width:100%;border-collapse:collapse}
+.wt th{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);padding:8px 13px;border-bottom:1px solid var(--brd);text-align:left;background:var(--bg)}
+.wt td{padding:8px 13px;border-bottom:1px solid var(--brd);color:var(--txt);font-size:12px;line-height:1.4;vertical-align:middle}
+.wt tr:last-child td{border-bottom:none}
+.wt tr.wph td{background:var(--acc-bg);color:var(--acc);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 13px;border-bottom:1px solid var(--acc-bd)}
+.wt tr:hover:not(.wph) td{background:var(--bg)}
+
+/* NOTICE */
+.ntc{border-radius:9px;padding:9px 13px;font-size:12px;line-height:1.5;margin-top:9px;font-weight:500;border:1px solid transparent}
+.ni{background:var(--blu-bg);color:var(--blu);border-color:var(--blu-bd)}
+.nw{background:var(--amb-bg);color:var(--amb);border-color:var(--amb-bd)}
+.ng{background:var(--grn-bg);color:var(--grn);border-color:var(--grn-bd)}
+
+/* PHASE */
+.pw{background:var(--white);border:1.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.pt{width:100%;border-collapse:collapse;font-size:12px}
+.pt th{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);padding:9px 13px;border-bottom:1.5px solid var(--brd);text-align:left;background:var(--surf)}
+.pt td{padding:9px 13px;border-bottom:1px solid var(--brd);color:var(--txt);vertical-align:top;line-height:1.45}
+.pt tr:last-child td{border-bottom:none}
+.pt tr:hover td{background:var(--bg)}
+.pt td.pm{color:var(--mut);font-size:11px}
+
+/* FOOTER */
+.ftr{padding:18px 40px;border-top:1.5px solid var(--brd);background:var(--white);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fn{font-size:12px;color:var(--mut2)}
+.ft{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--mut2);text-transform:uppercase}
+
+@media(max-width:900px){.hdr,.main,.nav,.ftr{padding-left:16px;padding-right:16px}.wgr{grid-template-columns:repeat(4,minmax(0,1fr))}.sgr{grid-template-columns:repeat(2,minmax(0,1fr))}.rgr{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wgr{grid-template-columns:repeat(2,minmax(0,1fr))}.rgr{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- VIDEO MODAL -->
+<div class="modal-bg" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="modal-title" id="modal-title">Video hướng dẫn</span>
+      <button class="modal-close" onclick="closeVid()">✕</button>
+    </div>
+    <div class="modal-body">
+      <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<header class="hdr">
+  <div>
+    <div class="ey">Kế hoạch cá nhân · 2025–2026</div>
+    <h1>Tập luyện &amp; <em>Ăn uống</em></h1>
+  </div>
+  <div class="hs">
+    <div class="hsc"><div class="hsv">62→60kg</div><div class="hsl">Mục tiêu</div></div>
+    <div class="hsc"><div class="hsv">10–12</div><div class="hsl">Tuần dự kiến</div></div>
+    <div class="hsc"><div class="hsv">~1.800</div><div class="hsl">Kcal / ngày</div></div>
+  </div>
+</header>
+
+<nav class="nav">
+  <button class="nb on" onclick="st('ov')">📋 Tổng quan</button>
+  <button class="nb" onclick="st('ml')">🍱 Ăn uống</button>
+  <button class="nb" onclick="st('wk')">💪 Lịch tập + Video</button>
+  <button class="nb" onclick="st('rd')">🗺️ Lộ trình CL</button>
+</nav>
+
+<main class="main">
+
+<!-- ═══ OVERVIEW ═══ -->
+<div class="pnl on" id="p-ov">
+  <div class="stl">Chỉ số & mục tiêu</div>
+  <div class="sgr">
+    <div class="sc"><div style="font-size:22px;margin-bottom:6px">🔥</div><div class="sv">~1.800</div><div class="sl">Kcal ngày thường</div></div>
+    <div class="sc"><div style="font-size:22px;margin-bottom:6px">⚽</div><div class="sv">~2.100</div><div class="sl">Kcal ngày đá banh</div></div>
+    <div class="sc"><div style="font-size:22px;margin-bottom:6px">🥩</div><div class="sv">140g+</div><div class="sl">Protein mỗi ngày</div></div>
+    <div class="sc"><div style="font-size:22px;margin-bottom:6px">⏰</div><div class="sv">6:00</div><div class="sl">Thức dậy · tập 6:30</div></div>
+  </div>
+
+  <div class="stl">Lịch 7 ngày</div>
+  <div class="wgr">
+    <div class="dc cb"><div class="dn">Thứ 2</div><div class="di">🤸</div><div class="dt">Push+Core+HIIT</div><div class="ds">6:30–7:30<br>Tối: cơm nhà</div></div>
+    <div class="dc cg"><div class="dn">Thứ 3</div><div class="di">⚽</div><div class="dt">Đá banh 90'</div><div class="ds">Warm-up 6:10<br>Tối: hâm cơm</div></div>
+    <div class="dc cb"><div class="dn">Thứ 4</div><div class="di">💪</div><div class="dt">Pull+Legs+LISS</div><div class="ds">6:30–7:35<br>Tối: cơm nhà</div></div>
+    <div class="dc cg"><div class="dn">Thứ 5</div><div class="di">⚽</div><div class="dt">Đá banh 90'</div><div class="ds">Warm-up 6:10<br>Tối: hâm cơm</div></div>
+    <div class="dc ca"><div class="dn">Thứ 6</div><div class="di">🏋️</div><div class="dt">Full body nhẹ</div><div class="ds">6:30–7:10<br>Không chạy</div></div>
+    <div class="dc ca"><div class="dn">Thứ 7</div><div class="di">🏃</div><div class="dt">Chạy LISS</div><div class="ds">6:30–7:15<br>30–40 phút</div></div>
+    <div class="dc"><div class="dn">CN</div><div class="di">🧘</div><div class="dt">Nghỉ tích cực</div><div class="ds">Giãn cơ<br>Cơm nhà</div></div>
+  </div>
+
+  <div class="stl">Quy tắc bữa tối cơm nhà</div>
+  <div class="rgr">
+    <div class="rc"><span class="ri">🥗</span><div><div class="rtl">Ăn đúng thứ tự</div><div class="rsl">Rau → Thịt → Canh → Cơm. No sớm tự nhiên.</div></div></div>
+    <div class="rc"><span class="ri">🍚</span><div><div class="rtl">Cơm trắng 1 chén nhỏ</div><div class="rsl">~100–120g. Thứ duy nhất cần kiểm soát.</div></div></div>
+    <div class="rc"><span class="ri">🍖</span><div><div class="rtl">Thịt & rau thoải mái</div><div class="rsl">Ăn bình thường, hạn chế nước kho ngọt.</div></div></div>
+    <div class="rc"><span class="ri">⚽</span><div><div class="rtl">Ngày đá banh: vợ để phần</div><div class="rsl">Về ~21h hâm 2 phút. Cơm ~130g.</div></div></div>
+    <div class="rc"><span class="ri">🐟</span><div><div class="rtl">Cá nục: thêm 1 trứng</div><div class="rsl">Protein thấp hơn ức gà — bù bằng trứng kèm.</div></div></div>
+    <div class="rc"><span class="ri">💧</span><div><div class="rtl">Uống đủ nước</div><div class="rsl">2.5–3 lít/ngày. Ngày đá banh 3+ lít.</div></div></div>
+  </div>
+
+  <div class="stl">Thực phẩm theo bữa</div>
+  <div class="tw">
+    <table>
+      <thead><tr><th></th><th>Bữa</th><th>Thực phẩm chính</th><th>Thay thế</th><th>Kcal</th></tr></thead>
+      <tbody>
+        <tr><td class="tic">🌅</td><td><strong>Sáng</strong></td><td>Yến mạch 50g + sữa hạt hạnh nhân + 2 trứng luộc + chuối</td><td class="tm">—</td><td class="tr">~510</td></tr>
+        <tr><td class="tic">☀️</td><td><strong>Trưa</strong></td><td>Ức gà 150g + khoai lang 150g + rau xanh</td><td class="tm">Cá nục sốt cà 1 hộp + 1 trứng + khoai lang</td><td class="tr">~440</td></tr>
+        <tr><td class="tic">🌤️</td><td><strong>Snack</strong></td><td>Óc chó đỏ 20g + hạt bí xanh 15g</td><td class="tm">Chuối + ngũ cốc ngô (ngày đá banh)</td><td class="tr">~150–200</td></tr>
+        <tr><td class="tic">🌙</td><td><strong>Tối</strong></td><td>Cơm vợ nấu: 1 chén nhỏ + thịt/cá + rau + canh</td><td class="tm">—</td><td class="tr">~440–550</td></tr>
+        <tr><td class="tic">⚡</td><td><strong>Trước đá</strong></td><td>Khoai lang sấy 30g hoặc chuối nhỏ (30 phút trước)</td><td class="tm">—</td><td class="tr">~100</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ MEALS ═══ -->
+<div class="pnl" id="p-ml">
+  <div class="stabs">
+    <button class="stb on" onclick="sm('a-t2')">T2</button>
+    <button class="stb" onclick="sm('a-t3')">T3 ⚽</button>
+    <button class="stb" onclick="sm('a-t4')">T4</button>
+    <button class="stb" onclick="sm('a-t5')">T5 ⚽</button>
+    <button class="stb" onclick="sm('a-t6')">T6</button>
+    <button class="stb" onclick="sm('a-t7')">T7</button>
+    <button class="stb" onclick="sm('a-cn')">CN</button>
+  </div>
+  <div class="sp on" id="a-t2">
+    <div class="mc"><div class="mh"><span class="mtl">🕡 06:30 — Trước tập (tuỳ chọn)</span><span class="bdg bx">~90 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối nhỏ 1 quả</span><span class="mkcal">~90 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:45 — Sau tập / Sáng chính</span><span class="bdg bb">~510 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 50g + sữa hạt hạnh nhân 200ml</span><span class="mkcal">~280 kcal</span></div>
+      <div class="mr"><span class="mico">🥚</span><span class="mnm">2 trứng luộc</span><span class="mkcal">~140 kcal</span></div>
+      <div class="mr"><span class="mico">🌰</span><span class="mnm">Óc chó đỏ 15g + hạt bí xanh 15g</span><span class="mkcal">~120 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa (nghỉ công ty)</span><span class="bdg bb">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà 150g (luộc / áp chảo)</span><span class="mkcal">~250 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang luộc 150g + rau xanh thoải mái</span><span class="mkcal">~190 kcal</span></div>
+      <div class="mr swp"><span class="mico">🔄</span><span class="mnm">Thay thế: cá nục sốt cà 1 hộp + 1 trứng luộc + khoai lang</span><span class="mkcal">~400 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 — Snack chiều</span><span class="bdg bx">~150 kcal</span></div>
+      <div class="mr"><span class="mico">🌰</span><span class="mnm">Óc chó đỏ 20g + hạt bí xanh 10g</span><span class="mkcal">~150 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 19:00 — Tối (cơm vợ nấu)</span><span class="bdg bg">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm trắng 1 chén nhỏ (~110g)</span><span class="mkcal">~160 kcal</span></div>
+      <div class="mr"><span class="mico">🍖</span><span class="mnm">Thịt / cá vợ nấu 1–2 miếng</span><span class="mkcal">~200 kcal</span></div>
+      <div class="mr"><span class="mico">🥬</span><span class="mnm">Rau xào / luộc thoải mái + canh 1 chén</span><span class="mkcal">~80 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.730–1.830 kcal</span></div></div>
+  </div>
+  <div class="sp" id="a-t3">
+    <div class="mc"><div class="mh"><span class="mtl">🕕 06:10 — Warm-up, chưa ăn</span><span class="bdg bx">—</span></div>
+      <div class="mr"><span class="mico">💧</span><span class="mnm">Uống nước, warm-up 10 phút nhẹ</span><span class="mkcal">—</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:00 — Sáng chính</span><span class="bdg bb">~550 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 60g + sữa hạt hạnh nhân 200ml</span><span class="mkcal">~320 kcal</span></div>
+      <div class="mr"><span class="mico">🥚</span><span class="mnm">2 trứng luộc + chuối 1 quả</span><span class="mkcal">~230 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa (tăng carb)</span><span class="bdg ba">~560 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà 150g</span><span class="mkcal">~250 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang 200g + bắp ½ + rau xanh</span><span class="mkcal">~310 kcal</span></div>
+      <div class="mr swp"><span class="mico">🔄</span><span class="mnm">Thay thế: cá nục + 1 trứng + khoai lang 200g</span><span class="mkcal">~450 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 — Snack nạp năng lượng</span><span class="bdg ba">~200 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối 1 quả + ngũ cốc ngô 30g</span><span class="mkcal">~200 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕔 17:30 — Trước đá 30 phút</span><span class="bdg ba">~100 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang sấy 30g hoặc chuối nhỏ</span><span class="mkcal">~100 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕘 ~21:00 — Về nhà hâm cơm vợ để phần</span><span class="bdg bg">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm trắng 1 chén vừa (~130g)</span><span class="mkcal">~190 kcal</span></div>
+      <div class="mr"><span class="mico">🍖</span><span class="mnm">Thịt / cá vợ để phần — hâm 2 phút</span><span class="mkcal">~220 kcal</span></div>
+      <div class="mr"><span class="mico">🥬</span><span class="mnm">Rau còn lại hoặc dưa leo ăn sống</span><span class="mkcal">~30 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.850–2.100 kcal</span></div></div>
+    <div class="ntc ng">⚽ Sau đá banh được ăn cơm nhiều hơn chút (~130g) — cơ thể cần nạp lại glycogen.</div>
+  </div>
+  <div class="sp" id="a-t4">
+    <div class="mc"><div class="mh"><span class="mtl">🕡 06:30 — Trước tập</span><span class="bdg bx">~90 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối nhỏ 1 quả</span><span class="mkcal">~90 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:45 — Sau tập / Sáng chính</span><span class="bdg bb">~580 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 50g + sữa hạt hạnh nhân 200ml</span><span class="mkcal">~280 kcal</span></div>
+      <div class="mr"><span class="mico">🥚</span><span class="mnm">3 trứng luộc (tăng protein sau bài kéo)</span><span class="mkcal">~210 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối nhỏ</span><span class="mkcal">~90 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa (cá nục hôm nay)</span><span class="bdg bb">~450 kcal</span></div>
+      <div class="mr"><span class="mico">🐟</span><span class="mnm">Cá nục sốt cà 3 cô gái 1 hộp</span><span class="mkcal">~190 kcal</span></div>
+      <div class="mr"><span class="mico">🥚</span><span class="mnm">+ 1 trứng luộc (bù protein)</span><span class="mkcal">~70 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang luộc 150g + rau xanh</span><span class="mkcal">~190 kcal</span></div>
+      <div class="mr nrt"><span class="mico">⚠️</span><span class="mnm">Hạn chế ăn nước sốt — sodium cao</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 — Snack</span><span class="bdg bx">~160 kcal</span></div>
+      <div class="mr"><span class="mico">🌰</span><span class="mnm">Hạt bí xanh 20g + óc chó đỏ 15g</span><span class="mkcal">~160 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 19:00 — Tối (cơm vợ nấu)</span><span class="bdg bg">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm trắng 1 chén nhỏ (~110g)</span><span class="mkcal">~160 kcal</span></div>
+      <div class="mr"><span class="mico">🍖</span><span class="mnm">Thịt / cá vợ nấu + rau + canh</span><span class="mkcal">~280 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.720–1.850 kcal</span></div></div>
+  </div>
+  <div class="sp" id="a-t5">
+    <div class="ntc ni" style="margin-bottom:12px">ℹ️ Chế độ ăn giống Thứ 3 — tăng carb bữa trưa, snack chiều, hâm cơm sau đá.</div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:00 — Sáng chính</span><span class="bdg bb">~550 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 60g + sữa hạt hạnh nhân + 2 trứng + chuối</span><span class="mkcal">~550 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa (tăng carb)</span><span class="bdg ba">~610 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà 150g hoặc cá nục + 1 trứng</span><span class="mkcal">~320 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang 200g + bắp ½ + rau xanh</span><span class="mkcal">~290 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 & 🕔 17:30 — Snack + Trước đá</span><span class="bdg ba">~300 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối + ngũ cốc ngô 30g</span><span class="mkcal">~200 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang sấy 30g (30 phút trước đá)</span><span class="mkcal">~100 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕘 ~21:00 — Hâm cơm vợ để phần</span><span class="bdg bg">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm 1 chén vừa + thịt + rau vợ để phần</span><span class="mkcal">~440 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.900–2.100 kcal</span></div></div>
+  </div>
+  <div class="sp" id="a-t6">
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:00 — Sau tập nhẹ / Sáng</span><span class="bdg bb">~380 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 40g + sữa hạt hạnh nhân + 2 trứng luộc</span><span class="mkcal">~380 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa</span><span class="bdg bb">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà 150g hoặc cá nục + 1 trứng</span><span class="mkcal">~320 kcal</span></div>
+      <div class="mr"><span class="mico">🍠</span><span class="mnm">Khoai lang 120g + rau xanh</span><span class="mkcal">~170 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 — Snack nhẹ</span><span class="bdg bx">~150 kcal</span></div>
+      <div class="mr"><span class="mico">🌰</span><span class="mnm">Óc chó đỏ 20g + hạt bí 10g</span><span class="mkcal">~150 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 19:00 — Tối (ít cơm hơn)</span><span class="bdg bg">~425 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm trắng ~100g + thịt vợ nấu + rau + canh</span><span class="mkcal">~425 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.395–1.700 kcal</span></div></div>
+    <div class="ntc nw">⚡ T6 không tập nhiều — giảm cơm ~100g, ăn rau nhiều bù vào.</div>
+  </div>
+  <div class="sp" id="a-t7">
+    <div class="mc"><div class="mh"><span class="mtl">🕕 06:00 — Trước chạy</span><span class="bdg bx">~90 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối nhỏ 1 quả (nhẹ bụng)</span><span class="mkcal">~90 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:15 — Sau chạy / Sáng</span><span class="bdg bb">~550 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 60g + sữa hạt hạnh nhân + 2 trứng + chuối</span><span class="mkcal">~550 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa (xả hơi)</span><span class="bdg ba">~500 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà / cá hồi + cơm trắng 150g + rau</span><span class="mkcal">~500 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:00 — Snack</span><span class="bdg bx">~200 kcal</span></div>
+      <div class="mr"><span class="mico">🍎</span><span class="mnm">Trái cây + óc chó hoặc ngũ cốc</span><span class="mkcal">~200 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 19:00 — Tối (tự do hơn)</span><span class="bdg bg">~500 kcal</span></div>
+      <div class="mr"><span class="mico">🍽️</span><span class="mnm">Cơm nhà bình thường — ưu tiên đạm, hạn chế chiên</span><span class="mkcal">~500 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.840–2.000 kcal</span></div></div>
+  </div>
+  <div class="sp" id="a-cn">
+    <div class="mc"><div class="mh"><span class="mtl">🕖 07:30 — Sáng thư giãn</span><span class="bdg bb">~510 kcal</span></div>
+      <div class="mr"><span class="mico">🌾</span><span class="mnm">Yến mạch 50g + sữa hạt hạnh nhân + 2 trứng luộc</span><span class="mkcal">~420 kcal</span></div>
+      <div class="mr"><span class="mico">🍌</span><span class="mnm">Chuối 1 quả</span><span class="mkcal">~90 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕛 12:00 — Trưa</span><span class="bdg bb">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍗</span><span class="mnm">Ức gà 150g + khoai lang 150g + rau xanh</span><span class="mkcal">~440 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕒 15:30 — Snack</span><span class="bdg bx">~160 kcal</span></div>
+      <div class="mr"><span class="mico">🌰</span><span class="mnm">Óc chó đỏ 20g + hạt bí 15g</span><span class="mkcal">~160 kcal</span></div></div>
+    <div class="mc"><div class="mh"><span class="mtl">🕖 19:00 — Tối (cơm vợ nấu)</span><span class="bdg bg">~440 kcal</span></div>
+      <div class="mr"><span class="mico">🍚</span><span class="mnm">Cơm 1 chén + thịt + rau + canh bình thường</span><span class="mkcal">~440 kcal</span></div>
+      <div class="mr tot"><span class="mico">📊</span><span class="mnm">Tổng ngày</span><span class="mkcal">~1.550–1.800 kcal</span></div></div>
+  </div>
+</div>
+
+<!-- ═══ WORKOUT + VIDEO ═══ -->
+<div class="pnl" id="p-wk">
+  <div class="stabs">
+    <button class="stb on" onclick="sw('w-t2')">🤸 T2</button>
+    <button class="stb" onclick="sw('w-t3')">⚽ T3</button>
+    <button class="stb" onclick="sw('w-t4')">💪 T4</button>
+    <button class="stb" onclick="sw('w-t5')">⚽ T5</button>
+    <button class="stb" onclick="sw('w-t6')">🏋️ T6</button>
+    <button class="stb" onclick="sw('w-t7')">🏃 T7</button>
+  </div>
+
+  <div class="sp on" id="w-t2">
+    <div class="woc"><div class="woh"><span class="wot">🤸 Thứ 2 — Push + Core + HIIT</span><span class="bdg bb">6:30–7:30</span></div>
+      <table class="wt"><thead><tr><th style="width:38%">Bài tập</th><th style="width:22%">Set × Rep</th><th style="width:10%">Nghỉ</th><th>Video</th></tr></thead><tbody>
+        <tr class="wph"><td colspan="4">🔥 Khởi động — 5 phút</td></tr>
+        <tr><td>🦘 Jumping jack + arm circle</td><td class="ts">3 phút</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('DS8jWUNjgjA','Jumping Jacks')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🐛 Inchworm</td><td class="ts">5 cái</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('N0E_iKGFBIg','Inchworm')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">💪 Push — Ngực / Vai / Tay sau</td></tr>
+        <tr><td>🙌 Push-up chuẩn / Wide push-up</td><td class="ts">4 × 20–25</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('IODxDxX7oi4','Push-up đúng kỹ thuật')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🪑 Dip (ghế / xà song)</td><td class="ts">3 × 12–15</td><td class="trst">75s</td><td><button class="vlink" onclick="openVid('2z8JmcrW-As','Tricep Dip')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>💎 Diamond push-up</td><td class="ts">3 × 10–12</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('J0DX_RKuHKE','Diamond Push-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🔼 Pike push-up</td><td class="ts">3 × 10</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('EA8g1oFBEgE','Pike Push-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🧱 Core circuit — 3 vòng</td></tr>
+        <tr><td>⬛ Plank</td><td class="ts">3 × 50–60s</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('ASdvN_XEl_c','Plank đúng kỹ thuật')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🌙 Hollow body hold</td><td class="ts">3 × 30s</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('LlDNef_Ztsc','Hollow Body Hold')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🧗 Mountain climber</td><td class="ts">3 × 30 rep</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('nmwgirgXLYM','Mountain Climber')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🏃 HIIT 20 phút</td></tr>
+        <tr><td>⚡ Chạy nhanh / đi bộ xen kẽ</td><td class="ts">× 10 vòng</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('ml6cT4AZdqI','HIIT Running')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🧘 Giãn cơ tĩnh</td><td class="ts">5 phút</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('g_tea8ZNk5A','Cool Down Stretch')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sp" id="w-t3">
+    <div class="woc"><div class="woh"><span class="wot">⚽ Thứ 3 — Warm-up sáng + Đá banh tối</span><span class="bdg bg">Fixed</span></div>
+      <table class="wt"><thead><tr><th style="width:45%">Hoạt động</th><th style="width:20%">Chi tiết</th><th>Video</th></tr></thead><tbody>
+        <tr class="wph"><td colspan="3">🌅 Sáng 6:10 — warm-up 10 phút</td></tr>
+        <tr><td>🦵 Leg swing trước/sau + ngang</td><td class="ts">2 × 10/bên</td><td><button class="vlink" onclick="openVid('qMq_vBbMnxk','Leg Swings Warm-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🔄 Hip circle + ankle rotation</td><td class="ts">2 × 10</td><td><button class="vlink" onclick="openVid('vqDGIjSJNIg','Hip Circle Warm-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🐛 Inchworm + deep squat hold</td><td class="ts">5 cái</td><td><button class="vlink" onclick="openVid('N0E_iKGFBIg','Inchworm')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🏃 Lateral lunge động</td><td class="ts">2 × 8/bên</td><td><button class="vlink" onclick="openVid('6k_GvNnEIFc','Lateral Lunge')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="3">⚽ Tối — Đá banh 90 phút</td></tr>
+        <tr><td>⚽ Đá banh cường độ cao</td><td class="trst">≈ 8km chạy</td><td>—</td></tr>
+        <tr class="wph"><td colspan="3">🧘 Sau đá — giãn cơ tĩnh 10 phút</td></tr>
+        <tr><td>🦵 Quad + hamstring stretch</td><td class="ts">30s × 2/bên</td><td><button class="vlink" onclick="openVid('R7fBFKMfAMQ','Post-workout Stretch')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🕊️ Pigeon pose / hông mở</td><td class="ts">45s × 2/bên</td><td><button class="vlink" onclick="openVid('R7fBFKMfAMQ','Pigeon Pose')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sp" id="w-t4">
+    <div class="woc"><div class="woh"><span class="wot">💪 Thứ 4 — Pull + Legs + LISS</span><span class="bdg bb">6:30–7:35</span></div>
+      <table class="wt"><thead><tr><th style="width:38%">Bài tập</th><th style="width:22%">Set × Rep</th><th style="width:10%">Nghỉ</th><th>Video</th></tr></thead><tbody>
+        <tr class="wph"><td colspan="4">🔥 Khởi động — 5 phút</td></tr>
+        <tr><td>🤸 Dead hang 20s giãn vai/lưng</td><td class="ts">2 lần</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('OmOHuJGbkRE','Dead Hang')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🏗️ Pull — Lưng / Tay trước</td></tr>
+        <tr><td>⬆️ Pull-up đúng kỹ thuật</td><td class="ts">5 × max (4–6)</td><td class="trst">120s</td><td><button class="vlink" onclick="openVid('eGo4IYlbE5g','Pull-up đúng kỹ thuật')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>⬇️ Negative pull-up (hạ chậm 5s)</td><td class="ts">3 × 5</td><td class="trst">90s</td><td><button class="vlink" onclick="openVid('yOIsTg_iu68','Negative Pull-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>↗️ Australian pull-up / Inverted row</td><td class="ts">3 × 12–15</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('B-rfnMmqAO4','Australian Pull-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🦵 Legs</td></tr>
+        <tr><td>🦘 Squat nhảy</td><td class="ts">3 × 15</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('CVaEhXotL7M','Jump Squat')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🚶 Reverse lunge</td><td class="ts">3 × 12/chân</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('xrjTnIV8_bE','Reverse Lunge')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🍑 Glute bridge single-leg</td><td class="ts">3 × 12/chân</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('XkSoMIZj40o','Single Leg Glute Bridge')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🧱 Wall sit</td><td class="ts">3 × 45s</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('y-wV4Venusw','Wall Sit')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🏃 LISS 25 phút</td></tr>
+        <tr><td>🏃 Chạy nhịp đều pace 6–7 phút/km</td><td class="ts">25 phút</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('kje7oRioFQk','LISS Cardio Running')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🧘 Giãn cơ tĩnh</td><td class="ts">5 phút</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('g_tea8ZNk5A','Cool Down Stretch')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sp" id="w-t5">
+    <div class="woc"><div class="woh"><span class="wot">⚽ Thứ 5 — Warm-up sáng + Đá banh tối</span><span class="bdg bg">Fixed (giống T3)</span></div>
+      <table class="wt"><thead><tr><th>Hoạt động</th><th>Ghi chú</th><th>Video</th></tr></thead><tbody>
+        <tr><td>🌅 Sáng 6:10 — warm-up 10 phút</td><td class="trst">Leg swing, hip circle, squat</td><td><button class="vlink" onclick="openVid('qMq_vBbMnxk','Warm-up Soccer')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>⚽ Tối — đá banh 90 phút</td><td class="trst">Cardio chính tuần</td><td>—</td></tr>
+        <tr><td>🧘 Sau đá — giãn cơ tĩnh 10 phút</td><td class="trst">Bắt buộc</td><td><button class="vlink" onclick="openVid('R7fBFKMfAMQ','Post-workout Stretch')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sp" id="w-t6">
+    <div class="woc"><div class="woh"><span class="wot">🏋️ Thứ 6 — Full body nhẹ (không chạy)</span><span class="bdg ba">6:30–7:10</span></div>
+      <table class="wt"><thead><tr><th style="width:38%">Bài tập</th><th style="width:22%">Set × Rep</th><th style="width:10%">Nghỉ</th><th>Video</th></tr></thead><tbody>
+        <tr class="wph"><td colspan="4">🔀 Superset — không nghỉ giữa cặp</td></tr>
+        <tr><td>🙌 Push-up chuẩn</td><td class="ts">3 × 15</td><td class="trst" rowspan="2" style="vertical-align:middle">60s/cặp</td><td><button class="vlink" onclick="openVid('IODxDxX7oi4','Push-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>⬆️ Pull-up / Negative pull-up</td><td class="ts">3 × 3–5</td><td><button class="vlink" onclick="openVid('eGo4IYlbE5g','Pull-up')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🪑 Dip</td><td class="ts">3 × 10</td><td class="trst">60s</td><td><button class="vlink" onclick="openVid('2z8JmcrW-As','Dip')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🏃 Squat + lunge xen kẽ</td><td class="ts">2 × 12</td><td class="trst">45s</td><td><button class="vlink" onclick="openVid('xrjTnIV8_bE','Squat & Lunge')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr class="wph"><td colspan="4">🧱 Core nhẹ</td></tr>
+        <tr><td>⬛ Plank + side plank</td><td class="ts">2 × 40s/bên</td><td class="trst">40s</td><td><button class="vlink" onclick="openVid('ASdvN_XEl_c','Plank & Side Plank')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🦵 Leg raise</td><td class="ts">2 × 12</td><td class="trst">40s</td><td><button class="vlink" onclick="openVid('JB2oyawG9KQ','Leg Raise')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🧘 Giãn cơ toàn thân</td><td class="ts">7 phút</td><td class="trst">—</td><td><button class="vlink" onclick="openVid('g_tea8ZNk5A','Full Body Stretch')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sp" id="w-t7">
+    <div class="woc"><div class="woh"><span class="wot">🏃 Thứ 7 — Chạy LISS 30–40 phút</span><span class="bdg ba">6:30–7:15</span></div>
+      <table class="wt"><thead><tr><th style="width:22%">Giai đoạn</th><th>Nội dung</th><th style="width:18%">Thời gian</th><th style="width:15%">Video</th></tr></thead><tbody>
+        <tr><td>🚶 Khởi động</td><td>Đi bộ nhanh tăng dần</td><td class="ts">5 phút</td><td>—</td></tr>
+        <tr><td>🏃 Chạy chính</td><td>Pace 6–7 phút/km · nhịp tim 60–70% max · thở được bằng mũi</td><td class="ts">25–30 phút</td><td><button class="vlink" onclick="openVid('kje7oRioFQk','LISS Running Form')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+        <tr><td>🐢 Hạ nhiệt</td><td>Đi bộ chậm dần</td><td class="ts">3 phút</td><td>—</td></tr>
+        <tr><td>🧘 Giãn cơ</td><td>Tĩnh — chân + lưng dưới</td><td class="ts">7 phút</td><td><button class="vlink" onclick="openVid('g_tea8ZNk5A','Cool Down')"><svg viewBox="0 0 24 24" fill="red"><path d="M8 5v14l11-7z"/></svg> Xem</button></td></tr>
+      </tbody></table>
+      <div class="ntc ni" style="margin:10px 13px 13px">🌿 Không ép tốc độ. Buổi đốt mỡ nền và thư giãn sau tuần làm việc.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ROADMAP ═══ -->
+<div class="pnl" id="p-rd">
+  <div class="stl">Nền tảng hiện tại</div>
+  <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px">
+    <span class="bdg bg">✅ Push-up: 25–30</span>
+    <span class="bdg bg">✅ Pull-up: 6 đúng kỹ thuật</span>
+    <span class="bdg bg">✅ Dip: 15</span>
+    <span class="bdg bb">📊 Mức: Trung bình khá</span>
+    <span class="bdg bac">🎯 Lộ trình 12 tháng lên Nâng cao</span>
+  </div>
+
+  <div class="stl">📍 Giai đoạn 1 — Nền tảng (Tháng 1–3)</div>
+  <div class="pw"><table class="pt"><thead><tr><th style="width:20%">Nhóm cơ</th><th style="width:44%">Bài tập</th><th>Tiêu chí lên level</th></tr></thead><tbody>
+    <tr><td>🙌 Ngực/Vai/Tay sau</td><td>Push-up chuẩn, Wide, Diamond, Pike, Dip</td><td class="pm">Push-up 4×20 · Dip 4×15</td></tr>
+    <tr><td>💪 Lưng/Tay trước</td><td>Pull-up, Negative pull-up, Australian row</td><td class="pm">Pull-up 3×8 sạch</td></tr>
+    <tr><td>🧱 Core</td><td>Plank, Hollow body, Leg raise, Mountain climber</td><td class="pm">Plank 3×60s</td></tr>
+    <tr><td>🦵 Chân</td><td>Squat, Lunge, Glute bridge, Squat nhảy</td><td class="pm">Pistol squat hỗ trợ</td></tr>
+    <tr><td>🏃 Cardio</td><td>HIIT 20' (T2) · LISS 25' (T4) · LISS 30' (T7)</td><td class="pm">Pace 6'/km ổn định</td></tr>
+  </tbody></table></div>
+
+  <div class="stl">🚀 Giai đoạn 2 — Sức mạnh (Tháng 4–8)</div>
+  <div class="pw"><table class="pt"><thead><tr><th style="width:20%">Nhóm cơ</th><th style="width:44%">Bài tập mục tiêu</th><th>Tiêu chí lên level</th></tr></thead><tbody>
+    <tr><td>🙌 Ngực/Vai/Tay sau</td><td>Archer push-up, Pseudo planche push-up, Ring dip</td><td class="pm">Archer push-up 3×8/bên</td></tr>
+    <tr><td>💪 Lưng/Tay trước</td><td>L-sit pull-up, Weighted pull-up, Tuck front lever</td><td class="pm">Pull-up 3×12 hoặc +5kg</td></tr>
+    <tr><td>🧱 Core</td><td>L-sit xà thấp, Dragon flag hỗ trợ, Ab wheel</td><td class="pm">L-sit 3×15s</td></tr>
+    <tr><td>🦵 Chân</td><td>Pistol squat, Nordic curl, Shrimp squat</td><td class="pm">Pistol squat 3×5/chân</td></tr>
+    <tr><td>⭐ Kỹ năng</td><td>Handstand tường, Tuck planche, Skin the cat</td><td class="pm">Handstand 20s ở tường</td></tr>
+  </tbody></table></div>
+
+  <div class="stl">⚡ Giai đoạn 3 — Nâng cao (Tháng 9–12+)</div>
+  <div class="pw"><table class="pt"><thead><tr><th style="width:20%">Nhóm cơ</th><th style="width:44%">Bài tập mục tiêu</th><th>Ghi chú</th></tr></thead><tbody>
+    <tr><td>🙌 Ngực/Vai</td><td>Planche lean, Straddle planche, HSPU tường</td><td class="pm">Mục tiêu 12 tháng+</td></tr>
+    <tr><td>💪 Lưng</td><td>Tuck front lever, Muscle-up (xà cao)</td><td class="pm">Cần xà đơn cao</td></tr>
+    <tr><td>🧱 Core</td><td>Dragon flag full, Front lever raise, Tuck planche</td><td class="pm">Core cực mạnh</td></tr>
+    <tr><td>🔥 Tổng hợp</td><td>Bar complex: pull-up → dip → L-sit → muscle-up</td><td class="pm">Kiểm tra sức mạnh chức năng</td></tr>
+  </tbody></table></div>
+
+  <div class="stl">Lưu ý quan trọng</div>
+  <div class="rgr">
+    <div class="rc"><span class="ri">⚠️</span><div><div class="rtl">Không tăng volume >10%/tuần</div><div class="rsl">Tránh chấn thương khuỷu tay và vai — phổ biến khi tập calisthenics.</div></div></div>
+    <div class="rc"><span class="ri">😴</span><div><div class="rtl">Ngủ 7–8 tiếng là bài tập ẩn</div><div class="rsl">GH hormone tiết mạnh trong giấc ngủ sâu — đốt mỡ và tăng cơ.</div></div></div>
+    <div class="rc"><span class="ri">📏</span><div><div class="rtl">Đo vòng bụng, không chỉ cân</div><div class="rsl">Cân không phản ánh đúng khi vừa giảm mỡ vừa tăng cơ.</div></div></div>
+  </div>
+</div>
+
+</main>
+
+<footer class="ftr">
+  <span class="fn">Cập nhật lần cuối: 2025 · Kế hoạch cá nhân</span>
+  <span class="ft">Personal Fitness Plan</span>
+</footer>
+
+<script>
+function st(id){
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['ov','ml','wk','rd'][i]===id));
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+}
+function sm(id){
+  var ids=['a-t2','a-t3','a-t4','a-t5','a-t6','a-t7','a-cn'];
+  document.querySelectorAll('#p-ml .stb').forEach((b,i)=>b.classList.toggle('on',ids[i]===id));
+  document.querySelectorAll('#p-ml .sp').forEach(p=>p.classList.toggle('on',p.id===id));
+}
+function sw(id){
+  var ids=['w-t2','w-t3','w-t4','w-t5','w-t6','w-t7'];
+  document.querySelectorAll('#p-wk .stb').forEach((b,i)=>b.classList.toggle('on',ids[i]===id));
+  document.querySelectorAll('#p-wk .sp').forEach(p=>p.classList.toggle('on',p.id===id));
+}
+function openVid(id,title){
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-iframe').src='https://www.youtube.com/embed/'+id+'?autoplay=1';
+  document.getElementById('modal').classList.add('open');
+}
+function closeVid(){
+  document.getElementById('modal-iframe').src='';
+  document.getElementById('modal').classList.remove('open');
+}
+function closeModal(e){if(e.target===document.getElementById('modal'))closeVid();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVid();});
+</script>
+</body>
+</html>
