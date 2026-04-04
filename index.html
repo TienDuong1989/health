@@ -3,9 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kế hoạch tập luyện & ăn uống</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Kế hoạch cá nhân 2026–2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#F5F3EF;color:#1A1614;font-size:14px;line-height:1.65}
+
+/* ── MASTER HEADER ── */
+.mhdr{background:#1A1614;color:#F5F3EF;padding:.9rem 1.5rem .65rem;position:sticky;top:0;z-index:300;border-bottom:3px solid #C85A2A}
+.mhdr-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.6rem;flex-wrap:wrap}
+.brand-title{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:-.01em;line-height:1}
+.brand-title em{font-style:normal;color:#E8935A}
+.brand-sub{font-size:11px;color:#888;margin-top:3px;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.date-pill{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.35rem .9rem;text-align:right;flex-shrink:0}
+.date-pill .dl{font-size:10px;color:#777;font-family:'DM Mono',monospace;letter-spacing:.07em}
+.date-pill .dv{font-size:.9rem;font-weight:500}
+/* master tab nav */
+.mnav{display:flex;overflow-x:auto;scrollbar-width:none;gap:0;margin:0 -.1rem}
+.mnav::-webkit-scrollbar{display:none}
+.mnb{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#777;background:none;border:none;border-bottom:2.5px solid transparent;padding:.55rem 1rem;cursor:pointer;white-space:nowrap;transition:all .18s;margin-bottom:-1.5px}
+.mnb:hover{color:#f5f3ef}
+.mnb.on{color:#E8935A;border-bottom-color:#E8935A}
+
+/* ── MODULES ── */
+.module{display:none}.module.on{display:block}
+
+/* ── HEALTH CSS (original, namespaced under #mod-health) ── */
+
 :root{
   --bg:#f7f6f3;--white:#ffffff;--surf:#f0eee9;--brd:#e2dfd6;--brd2:#ccc9bf;
   --txt:#18170f;--mut:#8c897f;--mut2:#b8b4a8;
@@ -17,7 +42,7 @@
   --acc:#4c3ebc;--acc-bg:#f0eefa;--acc-bd:#c4bcf0;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);font-size:14px;line-height:1.6}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14px;line-height:1.6}
 .hdr{background:var(--white);border-bottom:1.5px solid var(--brd);padding:32px 40px 24px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .ey{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
 h1{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;line-height:1.1;letter-spacing:-.02em}
@@ -117,10 +142,516 @@ td.tic{font-size:18px;width:34px;text-align:center;padding-right:4px}
 .ft{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--mut2);text-transform:uppercase}
 @media(max-width:900px){.hdr,.main,.nav,.ftr{padding-left:16px;padding-right:16px}.wgr{grid-template-columns:repeat(4,minmax(0,1fr))}.sgr{grid-template-columns:repeat(2,minmax(0,1fr))}.rgr{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.wgr{grid-template-columns:repeat(2,minmax(0,1fr))}.rgr{grid-template-columns:1fr}}
+
+
+/* ── ENGLISH CSS ── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:#F7F4F0; --card:#FFFFFF; --border:#E8E2DA;
+  --text:#1A1614; --text2:#6B5E54; --text3:#A89B91;
+  --accent:#C85A2A; --accent2:#E8935A;
+  --done:#3B7A57; --done-light:#EAF5EE;
+  --class-bg:#FFF7E6; --class-border:#E8C56A;
+  --ph1:#3B7A57; --ph2:#2E6DA4; --ph3:#8B4A9C; --ph4:#B5460E;
+}
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); font-size:15px; min-height:100vh; }
+
+header {
+  background:var(--text); color:#F7F4F0;
+  padding:1.5rem 1.5rem 1rem;
+  position:sticky; top:0; z-index:100;
+  border-bottom:3px solid var(--accent);
+}
+.hdr-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
+.brand h1 { font-family:'DM Serif Display',serif; font-size:1.7rem; line-height:1.1; }
+.brand h1 em { color:var(--accent2); font-style:italic; }
+.brand p { font-size:11px; color:#888; margin-top:4px; font-family:'DM Mono',monospace; letter-spacing:.05em; }
+.today-pill { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:.5rem .9rem; text-align:right; }
+.today-pill .tl { font-size:10px; color:#888; font-family:'DM Mono',monospace; letter-spacing:.08em; }
+.today-pill .tv { font-size:1rem; font-weight:500; }
+
+.pstrip { display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem; }
+.pitem .pl { font-size:10px; color:#888; font-family:'DM Mono',monospace; letter-spacing:.06em; margin-bottom:3px; }
+.pitem .pv { font-size:1.25rem; font-weight:600; }
+.pitem .ps { font-size:11px; color:#888; }
+.pbar-wrap { height:3px; background:rgba(255,255,255,.12); border-radius:2px; margin-top:5px; }
+.pbar { height:3px; border-radius:2px; transition:width .6s ease; }
+
+.nav-tabs { display:flex; overflow-x:auto; scrollbar-width:none; background:var(--card); border-bottom:1px solid var(--border); padding:0 1rem; }
+.nav-tabs::-webkit-scrollbar { display:none; }
+.tab-btn { padding:.8rem 1.1rem; border:none; background:none; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; color:var(--text2); cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px; transition:all .2s; }
+.tab-btn.active { color:var(--accent); border-bottom-color:var(--accent); }
+.tab-btn:hover:not(.active) { color:var(--text); }
+
+main { max-width:860px; margin:0 auto; padding:1.25rem 1rem 4rem; }
+.section { display:none; }
+.section.active { display:block; }
+
+/* WEEK NAV */
+.week-nav { display:flex; align-items:center; gap:.75rem; margin-bottom:.75rem; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:.75rem 1rem; }
+.week-nav-info { flex:1; }
+.week-nav-info h2 { font-family:'DM Serif Display',serif; font-size:1.15rem; }
+.week-nav-info .wphase { font-size:12px; font-family:'DM Mono',monospace; margin-top:2px; font-weight:500; }
+.nav-btn { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:5px 13px; font-family:'DM Sans',sans-serif; font-size:13px; cursor:pointer; color:var(--text); transition:all .15s; white-space:nowrap; }
+.nav-btn:hover { background:var(--border); }
+
+/* WEEK CHECKLIST SUMMARY */
+.week-summary { display:flex; align-items:center; gap:.75rem; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:.75rem 1rem; margin-bottom:1rem; flex-wrap:wrap; }
+.ws-left { display:flex; flex-direction:column; gap:4px; }
+.ws-label { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:.06em; }
+.ws-checks { display:flex; gap:5px; align-items:center; }
+.ws-dot { width:11px; height:11px; border-radius:50%; border:2px solid var(--border); }
+.ws-dot.on { background:var(--done); border-color:var(--done); }
+.ws-dot.partial { background:var(--accent2); border-color:var(--accent2); }
+.ws-dot.off { background:transparent; }
+.ws-bar-wrap { flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+.ws-bar { height:100%; border-radius:3px; transition:width .5s; }
+.ws-pct { font-size:1.4rem; font-weight:700; font-family:'DM Mono',monospace; }
+.ws-txt { font-size:12px; color:var(--text2); white-space:nowrap; }
+
+/* DAY CARDS */
+.days-grid { display:grid; gap:.6rem; }
+.day-card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.day-card.is-today { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+.day-card.all-done { border-color:var(--done); }
+.day-header { display:flex; align-items:center; gap:.6rem; padding:.6rem 1rem; background:#FAFAF8; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.day-card.is-today .day-header { background:#FBF0EB; }
+.day-card.all-done .day-header { background:#EAF5EE; }
+.day-name { font-weight:600; font-size:13px; min-width:72px; }
+.day-date { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; flex:1; }
+.badge { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:.03em; }
+.badge-today { background:var(--accent); color:white; }
+.badge-class { background:var(--class-bg); color:#8B6914; border:1px solid var(--class-border); }
+.badge-phase { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; font-family:'DM Mono',monospace; }
+
+/* DAY PROGRESS BAR */
+.day-progress { display:flex; align-items:center; gap:8px; padding:5px 1rem; border-bottom:1px solid var(--border); background:#F9F8F6; }
+.day-prog-bar-wrap { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.day-prog-bar { height:100%; border-radius:2px; transition:width .4s; background:var(--done); }
+.day-prog-txt { font-size:11px; font-family:'DM Mono',monospace; color:var(--text3); min-width:40px; text-align:right; }
+
+/* TASKS */
+.day-body { padding:.5rem .75rem; }
+.task-row { display:flex; align-items:flex-start; gap:9px; padding:.45rem 0; border-bottom:1px solid var(--border); }
+.task-row:last-child { border-bottom:none; }
+.task-check { width:20px; height:20px; border:2px solid var(--border); border-radius:6px; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s; margin-top:1px; }
+.task-check:hover { border-color:var(--accent); }
+.task-check.checked { background:var(--done); border-color:var(--done); }
+.task-check.checked::after { content:''; width:10px; height:6px; border-left:2px solid white; border-bottom:2px solid white; transform:rotate(-45deg) translateY(-1px); display:block; }
+.task-info { flex:1; min-width:0; }
+.task-name { font-size:13px; font-weight:500; line-height:1.4; }
+.task-name.crossed { text-decoration:line-through; color:var(--text3); }
+.task-detail { font-size:12px; color:var(--text2); margin-top:2px; line-height:1.4; }
+.task-link { font-size:11px; color:var(--accent); text-decoration:none; font-family:'DM Mono',monospace; display:inline-block; margin-top:2px; }
+.task-link:hover { text-decoration:underline; }
+.task-time { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; white-space:nowrap; padding-top:2px; flex-shrink:0; }
+.ttype { display:inline-block; font-size:10px; font-weight:700; padding:1px 6px; border-radius:10px; margin-right:5px; }
+.tc-dictation{background:#EAF5EE;color:#2D6B44;}
+.tc-listening{background:#F5EBF9;color:#7A3D8A;}
+.tc-speaking{background:#FBF0EB;color:#B5490F;}
+.tc-reading{background:#EAF2FB;color:#1F5D96;}
+.tc-vocab{background:#FAEEE8;color:#9A3B0C;}
+.tc-test{background:#F0EDE9;color:#5A4F46;}
+.tc-class{background:#FFF7E6;color:#7A5C12;}
+.rest-note { font-size:13px; color:var(--text3); padding:.5rem 0; font-style:italic; }
+
+/* ROADMAP */
+.roadmap { display:grid; gap:1rem; }
+.phase-card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.phase-hdr { display:flex; align-items:center; gap:.75rem; padding:.85rem 1.1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.phase-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.phase-title { font-weight:500; flex:1; }
+.phase-range { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+.phase-lv { font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; }
+.phase-body { padding:1rem 1.1rem; display:grid; gap:.6rem; }
+.phase-desc { font-size:13px; color:var(--text2); line-height:1.65; padding-bottom:.6rem; border-bottom:1px solid var(--border); }
+.phase-week { display:grid; grid-template-columns:88px 1fr; gap:.4rem; align-items:start; font-size:13px; }
+.pw-label { font-weight:500; color:var(--text2); padding-top:3px; }
+.chips { display:flex; flex-wrap:wrap; gap:5px; }
+.chip { display:inline-flex; font-size:11px; font-weight:700; padding:3px 9px; border-radius:16px; }
+
+/* STATS */
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.9rem; margin-bottom:1.25rem; }
+.stat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.1rem; }
+.stat-label { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:.06em; margin-bottom:6px; }
+.stat-val { font-size:2rem; font-weight:700; line-height:1; }
+.stat-sub { font-size:12px; color:var(--text2); margin-top:4px; }
+.skill-bars { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.1rem; }
+.skill-bars h3 { font-size:13px; font-weight:500; color:var(--text2); margin-bottom:.9rem; }
+.skill-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.skill-name { font-size:13px; min-width:85px; }
+.skill-track { flex:1; height:7px; background:var(--border); border-radius:4px; overflow:hidden; }
+.skill-fill { height:100%; border-radius:4px; transition:width .8s cubic-bezier(.34,1.56,.64,1); }
+.skill-pct { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; min-width:34px; text-align:right; }
+
+/* TOOLS */
+.tools-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:.9rem; }
+.tool-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.1rem; display:flex; flex-direction:column; gap:.4rem; }
+.tool-name { font-size:14px; font-weight:600; }
+.tool-tag { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; }
+.tool-desc { font-size:13px; color:var(--text2); line-height:1.5; flex:1; }
+.tool-link { font-size:12px; color:var(--accent); text-decoration:none; font-family:'DM Mono',monospace; margin-top:4px; }
+.tool-link:hover { text-decoration:underline; }
+
+/* NOTES */
+.notes-area { width:100%; min-height:220px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; font-family:'DM Sans',sans-serif; font-size:14px; color:var(--text); resize:vertical; outline:none; }
+.notes-area:focus { border-color:var(--accent); }
+.save-btn { margin-top:.75rem; background:var(--accent); color:white; border:none; padding:7px 18px; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; cursor:pointer; }
+.save-btn:hover { background:#A8491F; }
+
+@media(max-width:600px){
+  header { padding:1rem; }
+  .pstrip { grid-template-columns:1fr 1fr; }
+  .brand h1 { font-size:1.35rem; }
+  main { padding:1rem .75rem 3rem; }
+  .phase-week { grid-template-columns:1fr; }
+  .week-summary { gap:.5rem; }
+}
+
+
+/* ── ENGLISH SUB-NAV ── */
+.eng-subnav{display:flex;overflow-x:auto;scrollbar-width:none;gap:0;border-bottom:1.5px solid #E8E2DA;background:#fff;padding:0 1rem;margin:0 -1rem 1.25rem}
+.eng-subnav::-webkit-scrollbar{display:none}
+.etab-btn{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;color:#A89B91;background:none;border:none;border-bottom:2.5px solid transparent;padding:.7rem 1rem;cursor:pointer;white-space:nowrap;transition:all .18s;margin-bottom:-1.5px}
+.etab-btn:hover{color:#1A1614}
+.etab-btn.etab-active{color:#C85A2A;border-bottom-color:#C85A2A}
+
+/* ── OVERVIEW ── */
+.ov-wrap{padding:1.25rem 1.5rem 4rem;max-width:900px;margin:0 auto}
+.ov-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.65rem;margin-bottom:1.1rem}
+.ov-stat{background:#1A1614;border-radius:10px;padding:.85rem 1rem;color:#F5F3EF}
+.ov-stat .sl{font-size:10px;color:#777;font-family:'DM Mono',monospace;letter-spacing:.05em;margin-bottom:4px}
+.ov-stat .sv{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;line-height:1.1}
+.ov-stat .ss{font-size:11px;color:#aaa;margin-top:3px}
+.sec-lbl{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B8B4A8;margin-bottom:.7rem}
+.ov-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:1rem}
+.ov-day{background:#fff;border:1px solid #E8E2DA;border-radius:10px;padding:8px 7px}
+.ov-dn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#B8B4A8;margin-bottom:5px}
+.ov-tag{display:block;font-size:10px;font-weight:600;padding:2px 5px;border-radius:4px;margin-bottom:3px;line-height:1.4}
+.tf{background:#EAF3DE;color:#27500A}.tb{background:#9FE1CB;color:#085041}
+.te{background:#B5D4F4;color:#0C447C}.tc{background:#FAC775;color:#633806}
+.ts{background:#F4C0D1;color:#72243E}.tr{background:#F1EFE8;color:#5F5E5A}
+.tw2{background:#E5E2DA;color:#5a5348}
+.ov-sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:.7rem;margin-bottom:1rem}
+.ov-sum{border-radius:10px;padding:.85rem 1rem}
+.ov-warn{background:#FBF0EB;border:1px solid #F0997B;border-radius:10px;padding:.85rem 1.1rem;font-size:13px;color:#712B13;line-height:1.65}
+
+/* ── SDL ── */
+.sdl-wrap{max-width:860px;margin:0 auto;padding:1.25rem 1rem 4rem}
+.sdl-hero{background:#1A1614;color:#F5F3EF;border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1rem}
+.sdl-hero h2{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:.35rem}
+.sdl-hero h2 em{color:#E8935A;font-style:normal}
+.sdl-hero p{font-size:12px;color:#aaa;line-height:1.65}
+.sdl-warn{background:#FAEEDA;border:1px solid #EF9F27;border-radius:10px;padding:.85rem 1.1rem;font-size:12.5px;color:#633806;line-height:1.65;margin-bottom:1rem}
+.sdl-sch{background:#fff;border:1px solid #E8E2DA;border-radius:12px;overflow:hidden;margin-bottom:1.1rem}
+.sdl-sh{padding:.6rem 1rem;background:#F5F3EF;border-bottom:1px solid #E8E2DA;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B8B4A8}
+.sdl-row{display:grid;grid-template-columns:88px 1fr 90px;gap:8px;align-items:start;padding:.55rem 1rem;border-bottom:1px solid #E8E2DA;font-size:13px}
+.sdl-row:last-child{border-bottom:none}
+.sdl-day{font-weight:600;color:#6B5E54;font-size:12px;padding-top:2px;font-family:'DM Mono',monospace}
+.sdl-txt{color:#1A1614;line-height:1.4}
+.sdl-txt small{display:block;font-size:11px;color:#A89B91;margin-top:2px}
+.sdl-time{font-size:11px;color:#A89B91;font-family:'DM Mono',monospace;text-align:right;padding-top:2px}
+.sdl-bdg{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:6px;margin-right:4px}
+.sdl-pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.85rem;margin-bottom:1.1rem}
+.sdl-card{background:#fff;border:1px solid #E8E2DA;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.sdl-ct{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1A1614}
+.sdl-cs{font-size:10px;color:#A89B91;font-family:'DM Mono',monospace;margin-top:-2px}
+.sdl-cd{font-size:13px;color:#6B5E54;line-height:1.55;flex:1}
+.sdl-rl{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.sdl-rl li{font-size:12px;color:#6B5E54;display:flex;gap:5px}
+.sdl-rl li::before{content:"→";color:#C85A2A;flex-shrink:0}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:1.1rem}
+.tl-card{background:#fff;border:1px solid #E8E2DA;border-radius:10px;padding:.85rem}
+.sdl-footer{background:#1A1614;border-radius:12px;padding:1rem 1.25rem;color:#F5F3EF;font-size:13px;line-height:1.7}
+#mod-sdl .sdl-wrap,#mod-sdl .sdl-wrap div,#mod-sdl .sdl-wrap span,#mod-sdl .sdl-wrap li,#mod-sdl .sdl-wrap p{font-size:13px!important}
+#mod-sdl .sdl-hero h2{font-size:1.15rem!important}
+#mod-sdl .sec-lbl,#mod-sdl .sdl-sh,#mod-sdl .sdl-day,.sdl-cs,.sum-title,.slbl,.bk-hdr-s{font-size:11px!important}
+#mod-sdl .sdl-ct{font-size:13px!important;font-family:'Syne',sans-serif!important}
+#mod-sdl [style*="font-size:10px"]{font-size:10px!important}
+#mod-sdl [style*="font-size:11px"]{font-size:11px!important}
+#mod-sdl [style*="font-size:12px"]{font-size:12px!important}
+
+@media(max-width:700px){
+  .ov-week{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mhdr{padding:.75rem 1rem .55rem}
+  .hdr,.main,.nav,.ftr{padding-left:1rem!important;padding-right:1rem!important}
+  .sdl-pgrid{grid-template-columns:1fr}
+  .sdl-row{grid-template-columns:70px 1fr;gap:5px}
+  .sdl-time{display:none}
+}
 </style>
 </head>
 <body>
 
+<!-- MASTER HEADER -->
+<div class="mhdr">
+  <div class="mhdr-top">
+    <div>
+      <div class="brand-title">Kế hoạch <em>cá nhân</em> 2026</div>
+      <div class="brand-sub">Sinh 1989 · 36 tuổi · Digital Lead → Senior Digital Lead 2026–2027</div>
+    </div>
+    <div class="date-pill"><div class="dl">HÔM NAY</div><div class="dv" id="mTod">—</div></div>
+  </div>
+  <nav class="mnav">
+    <button class="mnb on" onclick="showMod('mod-ov',this)">🗓 Tổng quan</button>
+    <button class="mnb" onclick="showMod('mod-health',this)">💪 Sức khoẻ</button>
+    <button class="mnb" onclick="showMod('mod-eng',this)">🇬🇧 Tiếng Anh</button>
+    <button class="mnb" onclick="showMod('mod-sdl',this)">🚀 Senior Digital</button>
+  </nav>
+</div>
+
+<!-- ══ TỔNG QUAN ══ -->
+<div class="module on" id="mod-ov">
+<style>
+.p{max-width:920px;margin:0 auto;padding:1.75rem 1.5rem 4rem}
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#E8E2DA;border:1px solid #E8E2DA;border-radius:12px;overflow:hidden;margin-bottom:1.75rem}
+.sc-cell{background:#fff;padding:1rem 1.25rem}
+.sc-lbl{font-size:10px;letter-spacing:.09em;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.4rem}
+.sc-val{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#1A1614;line-height:1.1}
+.sc-val.accent{color:#C85A2A}
+.sc-sub{font-size:11px;color:#B8B4A8;margin-top:.25rem}
+.slbl{font-size:10px;letter-spacing:.1em;color:#B8B4A8;font-family:'DM Mono',monospace;margin-bottom:.75rem}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:1.75rem}
+.day{background:#fff;border:1px solid #EDEBE6;border-radius:10px;padding:.75rem}
+.day.ball{border-color:#B8DECE;background:#FAFDF9}
+.day.cn{border-color:#DDD8D0}
+.day-hdr{font-size:9px;letter-spacing:.09em;font-family:'DM Mono',monospace;color:#C8C4BE;margin-bottom:.6rem;font-weight:500}
+.day.ball .day-hdr{color:#5DCAA5}
+.day.cn .day-hdr{color:#C85A2A}
+.ev{font-size:11px;color:#3A3530;padding:4px 0;border-bottom:1px solid #F3F0EC;line-height:1.35}
+.ev:last-child{border-bottom:none}
+.ev .dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:5px;flex-shrink:0;vertical-align:middle;position:relative;top:-1px}
+.ev-time{font-size:10px;color:#C8C4BE;font-family:'DM Mono',monospace;display:block;padding-left:10px}
+.ev.muted,.ev.muted .ev-time{color:#D3CFCA}
+.ev.warn{font-size:10px;color:#C8894A;padding:3px 0}
+.sum-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E8E2DA;border:1px solid #E8E2DA;border-radius:12px;overflow:hidden;margin-bottom:1.25rem}
+.sum-cell{background:#fff;padding:1rem 1.25rem}
+.sum-title{font-size:10px;letter-spacing:.09em;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.5rem}
+.sum-line{font-size:12px;color:#6B6460;line-height:1.75}
+.sum-total{font-size:12px;font-weight:700;color:#1A1614;margin-top:.5rem;padding-top:.5rem;border-top:1px solid #EDEBE6}
+.rule{background:#1A1614;border-radius:10px;padding:1rem 1.25rem;font-size:12.5px;color:#C8C4BE;line-height:1.7;margin-bottom:1.5rem}
+.rule strong{color:#fff}
+.rule em{color:#E8935A;font-style:normal}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:.75rem}
+.bk{background:#fff;border:1px solid #EDEBE6;border-radius:10px;overflow:hidden}
+.bk-hdr{background:#F5F3EF;border-bottom:1px solid #EDEBE6;padding:.65rem 1rem}
+.bk-hdr-t{font-size:12px;font-weight:700;color:#1A1614}
+.bk-hdr-s{font-size:11px;color:#A89B91;margin-top:1px}
+.bk-body{padding:.85rem 1rem;display:flex;flex-direction:column;gap:.5rem}
+.bk-row{font-size:12px;color:#6B6460;line-height:1.5}
+.bk-row strong{color:#1A1614}
+.bk-note{background:#F5F3EF;border-radius:6px;padding:.45rem .75rem;font-size:11px;color:#6B5E54;margin-top:.2rem}
+</style>
+<div class="p">
+  <!-- STAT ROW -->
+  <div class="sc-row">
+    <div class="sc-cell">
+      <div class="sc-lbl">THỂ HÌNH</div>
+      <div class="sc-val">62→60kg</div>
+      <div class="sc-sub">~10 tuần · 1.800 kcal/ngày</div>
+    </div>
+    <div class="sc-cell">
+      <div class="sc-lbl">TIẾNG ANH</div>
+      <div class="sc-val">B1.2→B2</div>
+      <div class="sc-sub">04/2026 – 02/2027 · 9h/tuần</div>
+    </div>
+    <div class="sc-cell">
+      <div class="sc-lbl">CAREER — 2 NĂM TỚI</div>
+      <div class="sc-val accent">Senior</div>
+      <div class="sc-sub">Digital Lead → Head of Digital</div>
+    </div>
+    <div class="sc-cell">
+      <div class="sc-lbl">PHỤC HỒI · 36 TUỔI</div>
+      <div class="sc-val">7–8h</div>
+      <div class="sc-sub">Ngủ đủ — không thương lượng</div>
+    </div>
+  </div>
+
+  <!-- WEEK -->
+  <div class="slbl">LỊCH TUẦN — ƯU TIÊN: SỨC KHOẺ → TIẾNG ANH → NGHIÊN CỨU</div>
+  <div class="wk">
+
+    <div class="day">
+      <div class="day-hdr">THỨ HAI</div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Tập Push+Core+HIIT<span class="ev-time">6:30–7:30</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">8:00–19:00</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Tiếng Anh tự học<span class="ev-time">20:00–21:00</span></div>
+      <div class="ev"><span class="dot" style="background:#D4537E"></span>Nghiên cứu SDL<span class="ev-time">21:00–21:45</span></div>
+    </div>
+
+    <div class="day ball">
+      <div class="day-hdr">THỨ BA ⚽</div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Warm-up sáng<span class="ev-time">6:10–6:20</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">8:00–17:00</span></div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Đá banh<span class="ev-time">18:00–20:00</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Anh nhẹ sau đá<span class="ev-time">21:30–22:00</span></div>
+      <div class="ev warn">Không nghiên cứu SDL</div>
+    </div>
+
+    <div class="day">
+      <div class="day-hdr">THỨ TƯ ★ LỚP</div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Tập Pull+Legs<span class="ev-time">6:30–7:20</span></div>
+      <div class="ev"><span class="dot" style="background:#EF9F27"></span>Lớp giao tiếp<span class="ev-time">9:30–10:30</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">còn lại</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Tiếng Anh review<span class="ev-time">20:30–21:00</span></div>
+      <div class="ev"><span class="dot" style="background:#D4537E"></span>Đọc article SDL<span class="ev-time">21:15–21:45</span></div>
+    </div>
+
+    <div class="day ball">
+      <div class="day-hdr">THỨ NĂM ⚽</div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Warm-up sáng<span class="ev-time">6:10–6:20</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">8:00–19:00</span></div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Đá banh<span class="ev-time">19:30–21:00</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Về nhà — nghỉ<span class="ev-time">~21:30</span></div>
+      <div class="ev warn">Không học — phục hồi</div>
+    </div>
+
+    <div class="day">
+      <div class="day-hdr">THỨ SÁU</div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Relax sáng — không tập<span class="ev-time">—</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">8:00–19:00</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Tiếng Anh<span class="ev-time">20:30–21:30</span></div>
+      <div class="ev"><span class="dot" style="background:#D4537E"></span>Viết brief / practice<span class="ev-time">21:30–22:15</span></div>
+    </div>
+
+    <div class="day">
+      <div class="day-hdr">THỨ BẢY ★</div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Con cái<span class="ev-time">7:00–10:00</span></div>
+      <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Hardcore 2 buổi<span class="ev-time">10:00–11:30</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Tiếng Anh + test<span class="ev-time">10:00–12:00</span></div>
+      <div class="ev"><span class="dot" style="background:#EF9F27"></span>Lớp giao tiếp<span class="ev-time">15:00–16:00</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Nghỉ sau lớp<span class="ev-time">—</span></div>
+    </div>
+
+    <div class="day cn">
+      <div class="day-hdr">CHỦ NHẬT ★</div>
+      <div class="ev"><span class="dot" style="background:#D4537E"></span>Nghiên cứu sâu<span class="ev-time">8:00–9:30</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Gia đình<span class="ev-time">sáng–trưa</span></div>
+      <div class="ev"><span class="dot" style="background:#EF9F27"></span>Lớp giao tiếp<span class="ev-time">15:00–16:30</span></div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="sum-row">
+    <div class="sum-cell">
+      <div class="sum-title">SỨC KHOẺ / TUẦN</div>
+      <div class="sum-line">
+        T2 — Push + Core + HIIT<br>
+        T3 — Warm-up + Đá banh 90'<br>
+        T4 — Pull + Legs<br>
+        T5 — Warm-up + Đá banh 90'<br>
+        T7 — Hardcore 2 buổi
+      </div>
+      <div class="sum-total">~6h tập · 2x đá banh/tuần</div>
+    </div>
+    <div class="sum-cell">
+      <div class="sum-title">TIẾNG ANH / TUẦN</div>
+      <div class="sum-line">
+        T2/T4/T6 — tự học buổi tối<br>
+        T3 — nghe nhẹ 21:30 sau đá<br>
+        T7 — tự học + test sáng<br>
+        Lớp: T4 · T7 · CN (3 buổi)
+      </div>
+      <div class="sum-total">~6h tự học + 3h lớp = 9h</div>
+    </div>
+    <div class="sum-cell">
+      <div class="sum-title">NGHIÊN CỨU SDL / TUẦN</div>
+      <div class="sum-line">
+        CN 8–9:30 — đọc sách sâu<br>
+        T2 tối — viết insight tiếng Anh<br>
+        T4 tối — đọc article<br>
+        T6 tối — viết brief / practice
+      </div>
+      <div class="sum-total">~4h/tuần · T3 T5 T7 nghỉ SDL</div>
+    </div>
+  </div>
+
+  <!-- PRIORITY -->
+  <div class="rule">
+    <strong>Thứ tự ưu tiên — 2 năm tới:</strong> (1) Ngủ 7–8h · (2) Sức khoẻ · (3) Tiếng Anh B2 — điều kiện cần cho môi trường quốc tế · (4) Nghiên cứu <em>Senior Digital Lead</em><br>
+    T3 · T5 đá banh về mệt — không học nặng. T7 sau lớp — nghỉ hoàn toàn. Chủ nhật chỉ nghiên cứu sâu + lớp Anh.
+  </div>
+
+  <!-- BACKUP DU LỊCH -->
+  <div class="slbl">KẾ HOẠCH BÙ — KHI ĐI DU LỊCH T7 HOẶC CN</div>
+
+  <div style="background:#fff;border:1px solid #EDEBE6;border-radius:12px;overflow:hidden;margin-bottom:1rem">
+    <!-- Header -->
+    <div style="background:#1A1614;padding:.75rem 1.25rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px">
+      <div style="font-size:11px;font-weight:700;color:#A89B91;font-family:'DM Mono',monospace;padding-right:.5rem">TÌNH HUỐNG</div>
+      <div style="font-size:11px;font-weight:700;color:#A89B91;font-family:'DM Mono',monospace">MẤT GÌ · LÀM GÌ THAY</div>
+      <div style="font-size:11px;font-weight:700;color:#A89B91;font-family:'DM Mono',monospace">CÁC NGÀY KHÁC BÙ</div>
+    </div>
+
+    <!-- Row 1: mất T7 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#EDEBE6;border-bottom:1px solid #EDEBE6">
+      <div style="background:#fff;padding:.85rem 1rem">
+        <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">Đi T7 về CN tối</div>
+        <div style="font-size:11px;color:#A89B91">VD: trip 1 ngày thứ 7</div>
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        Mất: Hardcore tập · Dictation · STUDY4 · Lớp 15h<br>
+        Làm thay: Đi bộ/bơi thay Hardcore · Passive listening trên xe
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        • SDL dời vào CN 08:00–09:30 (nếu về kịp tối T7)<br>
+        • Lớp T7: báo cô giáo trước, không cần bù<br>
+        • Anh T7: tự học bù thứ Hai 20:00–21:00
+      </div>
+    </div>
+
+    <!-- Row 2: mất CN -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#EDEBE6;border-bottom:1px solid #EDEBE6">
+      <div style="background:#fff;padding:.85rem 1rem">
+        <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">Đi CN cả ngày</div>
+        <div style="font-size:11px;color:#A89B91">VD: trip qua đêm T7–CN</div>
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        Mất: Lớp Anh CN 15h · SDL sáng CN<br>
+        Làm thay: Passive listening Anh trên xe/máy bay
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        • Lớp CN: báo cô giáo trước 3 ngày<br>
+        • SDL CN sáng → dời sang T7 08:00–09:30 (nếu chưa đi)<br>
+        • Không cần bù lớp — tự học +30' thứ Hai
+      </div>
+    </div>
+
+    <!-- Row 3: mất cả T7+CN -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#EDEBE6">
+      <div style="background:#fff;padding:.85rem 1rem">
+        <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">Trip T7+CN (2 ngày)</div>
+        <div style="font-size:11px;color:#A89B91">Du lịch cả cuối tuần</div>
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        Mất: Lớp T7 + CN · Hardcore · SDL · Anh T7<br>
+        Làm thay: Hoạt động ngoài trời thay tập · Nghe podcast/anh trên xe
+      </div>
+      <div style="background:#fff;padding:.85rem 1rem;font-size:12px;color:#5A544E;line-height:1.6">
+        • Báo cô giáo cả 2 buổi lớp T7+CN<br>
+        • SDL: bỏ hoàn toàn — không bù<br>
+        • Quay lại bình thường từ thứ Hai tuần sau<br>
+        • <span style="color:#3B6D11;font-weight:600">Quy tắc: không cảm thấy tội lỗi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Passive listening note -->
+  <div style="background:#EAF2FB;border:1px solid #B5D4F4;border-radius:10px;padding:.85rem 1.1rem;font-size:13px;color:#185FA5;line-height:1.65;margin-bottom:1rem">
+    <strong>Passive listening trên xe/máy bay = học tiếng Anh thực sự.</strong> Bật BBC Learning English, Business English Pod hoặc McKinsey Podcast khi di chuyển — không cần chú ý chủ động. Một chuyến 3h xe là 3h listening không tốn thêm thời gian.
+  </div>
+
+  <div style="background:#F5F3EF;border:1px solid #EDEBE6;border-radius:10px;padding:.85rem 1.25rem;font-size:13px;color:#6B6460;line-height:1.7">
+    Lịch này phục vụ cuộc sống — không phải ngược lại. Du lịch với gia đình là nạp năng lượng. Sau kỳ nghỉ, quay lại đúng lịch từ thứ Hai — không bù những gì đã bỏ.
+  </div>
+
+</div>
+</div>
+
+<!-- ══ SỨC KHOẺ ══ -->
+<div class="module" id="mod-health">
 <header class="hdr">
   <div>
     <div class="ey">Kế hoạch cá nhân · 2025–2026</div>
@@ -132,14 +663,12 @@ td.tic{font-size:18px;width:34px;text-align:center;padding-right:4px}
     <div class="hsc"><div class="hsv">~1.800</div><div class="hsl">Kcal / ngày</div></div>
   </div>
 </header>
-
 <nav class="nav">
   <button class="nb on" onclick="st('ov')">📋 Tổng quan</button>
   <button class="nb" onclick="st('ml')">🍱 Ăn uống</button>
   <button class="nb" onclick="st('wk')">💪 Lịch tập</button>
   <button class="nb" onclick="st('rd')">🗺️ Lộ trình CL</button>
 </nav>
-
 <main class="main">
 
 <!-- OVERVIEW -->
@@ -499,16 +1028,363 @@ td.tic{font-size:18px;width:34px;text-align:center;padding-right:4px}
 </div>
 
 </main>
-
 <footer class="ftr">
   <span class="fn">Cập nhật lần cuối: 2025 · Kế hoạch cá nhân</span>
   <span class="ft">Personal Fitness Plan</span>
 </footer>
+</div>
 
+<!-- ══ TIẾNG ANH ══ -->
+<div class="module" id="mod-eng">
+<div style="max-width:860px;margin:0 auto;padding:0 1rem 4rem">
+  <div class="eng-subnav">
+<button class="etab-btn etab-active" onclick="showEngTab('schedule',this)">📅 Lịch tuần</button>
+<button class="etab-btn" onclick="showEngTab('roadmap',this)">🗺 Lộ trình</button>
+<button class="etab-btn" onclick="showEngTab('stats',this)">📊 Thống kê</button>
+<button class="etab-btn" onclick="showEngTab('tools',this)">🛠 Công cụ</button>
+<button class="etab-btn" onclick="showEngTab('notes',this)">📝 Ghi chú</button>
+  </div>
+<section id="tab-schedule" class="section active">
+  <div class="week-nav">
+    <button class="nav-btn" id="prevBtn" onclick="prevWeek()">← Trước</button>
+    <div class="week-nav-info">
+      <h2 id="weekTitle">Tuần hiện tại</h2>
+      <div class="wphase" id="weekPhaseLabel">Phase 1 · Foundation</div>
+    </div>
+    <button class="nav-btn" onclick="nextWeek()">Sau →</button>
+  </div>
+
+  <div class="week-summary">
+    <div class="ws-left">
+      <div class="ws-label">CHECKLIST TUẦN</div>
+      <div class="ws-checks" id="weekDots"></div>
+    </div>
+    <div class="ws-bar-wrap"><div class="ws-bar" id="wsSummaryBar" style="width:0%"></div></div>
+    <div class="ws-pct" id="wsSummaryPct">0%</div>
+    <div class="ws-txt" id="wsSummaryText">0/0 tasks</div>
+  </div>
+
+  <div class="days-grid" id="daysGrid"></div>
+</section>
+<section id="tab-roadmap" class="section">
+  <div class="roadmap">
+    <div class="phase-card">
+      <div class="phase-hdr">
+        <div class="phase-dot" style="background:var(--ph1)"></div>
+        <div class="phase-title">Phase 1 — Foundation</div>
+        <div class="phase-range">Tháng 4–6/2026</div>
+        <span class="phase-lv" style="background:#EAF5EE;color:#2D6B44">B1.2→B1.3</span>
+      </div>
+      <div class="phase-body">
+        <p class="phase-desc">🎯 Xây thói quen học hàng ngày. Dictation TOEIC B1, đọc ReadTheory, speaking AI + lớp. T6 tối học 20:30–21:30 thay vì nghỉ. T7 từ 10:00 sau khi chăm con.</p>
+        <div class="phase-week"><span class="pw-label">T2 tối</span><div class="chips"><span class="chip tc-dictation">Daily Dictation B1</span><span class="chip tc-vocab">Vocab B1→B2</span></div></div>
+        <div class="phase-week"><span class="pw-label">T3 21:30⚽</span><div class="chips"><span class="chip tc-listening">Passive Listening nhẹ 30'</span></div></div>
+        <div class="phase-week"><span class="pw-label">T4 ★ lớp+tối</span><div class="chips"><span class="chip tc-class">Lớp 9:30-10:30</span><span class="chip tc-speaking">AI Speaking review</span></div></div>
+        <div class="phase-week"><span class="pw-label">T5 ⚽ nghỉ</span><div class="chips"><span class="chip tc-test" style="background:#F3EFEB;color:#888">Đá banh 19:30 — nghỉ học</span></div></div>
+        <div class="phase-week"><span class="pw-label">T6 tối ✦</span><div class="chips"><span class="chip tc-speaking">AI Speaking IELTS P1</span><span class="chip tc-vocab">Vocab review</span></div></div>
+        <div class="phase-week"><span class="pw-label">T7 ★ 10h+lớp</span><div class="chips"><span class="chip tc-dictation">Dictation 45'</span><span class="chip tc-test">STUDY4 45'</span><span class="chip tc-class">Lớp 15:00</span></div></div>
+        <div class="phase-week"><span class="pw-label">CN ★</span><div class="chips"><span class="chip tc-class">Lớp 15:00-16:30</span><span class="chip tc-speaking">AI Speaking 30'</span></div></div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-hdr">
+        <div class="phase-dot" style="background:var(--ph2)"></div>
+        <div class="phase-title">Phase 2 — Consolidation</div>
+        <div class="phase-range">Tháng 7–9/2026</div>
+        <span class="phase-lv" style="background:#EAF2FB;color:#1F5D96">B1.3→B2.1</span>
+      </div>
+      <div class="phase-body">
+        <p class="phase-desc">🎯 Business English, dictation B2 level, speaking work topics. Mock test đầy đủ mỗi T7 sáng từ 10:00. T6 tối luyện speaking nâng cao.</p>
+        <div class="phase-week"><span class="pw-label">T2 tối</span><div class="chips"><span class="chip tc-dictation">Dictation TOEIC B2</span><span class="chip tc-vocab">Grammar focus</span></div></div>
+        <div class="phase-week"><span class="pw-label">T3 21:30⚽</span><div class="chips"><span class="chip tc-listening">Bus. English Pod nhẹ</span></div></div>
+        <div class="phase-week"><span class="pw-label">T4 ★</span><div class="chips"><span class="chip tc-class">Lớp 9:30-10:30</span><span class="chip tc-vocab">Vocab + Youglish</span></div></div>
+        <div class="phase-week"><span class="pw-label">T5 ⚽ nghỉ</span><div class="chips"><span class="chip tc-test" style="background:#F3EFEB;color:#888">Đá banh 19:30 — nghỉ học</span></div></div>
+        <div class="phase-week"><span class="pw-label">T6 tối ✦</span><div class="chips"><span class="chip tc-reading">ReadTheory B2</span><span class="chip tc-speaking">AI Speaking B2</span></div></div>
+        <div class="phase-week"><span class="pw-label">T7 ★ 10h+lớp</span><div class="chips"><span class="chip tc-test">Full Mock Test TOEIC</span><span class="chip tc-class">Lớp 15:00</span></div></div>
+        <div class="phase-week"><span class="pw-label">CN ★</span><div class="chips"><span class="chip tc-class">Lớp 15:00-16:30</span><span class="chip tc-speaking">Shadowing 20'</span></div></div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-hdr">
+        <div class="phase-dot" style="background:var(--ph3)"></div>
+        <div class="phase-title">Phase 3 — Bridge to B2</div>
+        <div class="phase-range">Tháng 10–12/2026</div>
+        <span class="phase-lv" style="background:#F5EBF9;color:#7A3D8A">B2.1→B2.2</span>
+      </div>
+      <div class="phase-body">
+        <p class="phase-desc">🎯 Từ vựng Digital Lead: OKR, roadmap, stakeholder. Trình bày ý tưởng, viết email/report. T6 tối luyện role-play meeting.</p>
+        <div class="phase-week"><span class="pw-label">T2 tối</span><div class="chips"><span class="chip tc-vocab">Business Vocab Digital Lead</span></div></div>
+        <div class="phase-week"><span class="pw-label">T3 21:30⚽</span><div class="chips"><span class="chip tc-listening">Lex Fridman nhẹ 30'</span></div></div>
+        <div class="phase-week"><span class="pw-label">T4 ★</span><div class="chips"><span class="chip tc-class">Lớp 9:30-10:30</span><span class="chip tc-speaking">Present ideas 3'</span></div></div>
+        <div class="phase-week"><span class="pw-label">T5 ⚽ nghỉ</span><div class="chips"><span class="chip tc-test" style="background:#F3EFEB;color:#888">Đá banh 19:30 — nghỉ học</span></div></div>
+        <div class="phase-week"><span class="pw-label">T6 tối ✦</span><div class="chips"><span class="chip tc-speaking">Meeting role-play AI</span></div></div>
+        <div class="phase-week"><span class="pw-label">T7 ★ 10h+lớp</span><div class="chips"><span class="chip tc-test">IELTS Practice Test</span><span class="chip tc-class">Lớp 15:00</span></div></div>
+        <div class="phase-week"><span class="pw-label">CN ★</span><div class="chips"><span class="chip tc-class">Lớp 15:00-16:30</span><span class="chip tc-speaking">Presentation debrief</span></div></div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-hdr">
+        <div class="phase-dot" style="background:var(--ph4)"></div>
+        <div class="phase-title">Phase 4 — Interview Ready</div>
+        <div class="phase-range">Tháng 1–2/2027</div>
+        <span class="phase-lv" style="background:#FAEEE8;color:#9A3B0C">B2.2 → Interview</span>
+      </div>
+      <div class="phase-body">
+        <p class="phase-desc">🎯 Mock interview Digital Lead — leadership, strategy, data-driven. Speaking 26+ (B2.1). T6 tối: full mock interview 30 phút với AI.</p>
+        <div class="phase-week"><span class="pw-label">T2 tối</span><div class="chips"><span class="chip tc-speaking">Mock Interview Q&A AI</span></div></div>
+        <div class="phase-week"><span class="pw-label">T3 21:30⚽</span><div class="chips"><span class="chip tc-listening">Tech podcast nhẹ 30'</span></div></div>
+        <div class="phase-week"><span class="pw-label">T4 ★</span><div class="chips"><span class="chip tc-class">Lớp — interview practice</span></div></div>
+        <div class="phase-week"><span class="pw-label">T5 ⚽ nghỉ</span><div class="chips"><span class="chip tc-test" style="background:#F3EFEB;color:#888">Đá banh 19:30 — nghỉ học</span></div></div>
+        <div class="phase-week"><span class="pw-label">T6 tối ✦</span><div class="chips"><span class="chip tc-speaking">Full Mock Interview 30'</span></div></div>
+        <div class="phase-week"><span class="pw-label">T7 ★ 10h+lớp</span><div class="chips"><span class="chip tc-test">Interview simulation</span><span class="chip tc-class">Lớp 15:00</span></div></div>
+        <div class="phase-week"><span class="pw-label">CN ★</span><div class="chips"><span class="chip tc-class">Lớp 15:00-16:30</span><span class="chip tc-speaking">Debrief + focus</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="tab-stats" class="section">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-label">TASKS XONG</div><div class="stat-val" id="statTotal">0</div><div class="stat-sub">/ <span id="statTotalOf">0</span> tổng</div></div>
+    <div class="stat-card"><div class="stat-label">STREAK DÀI NHẤT</div><div class="stat-val" id="statStreak">0</div><div class="stat-sub">ngày liên tiếp</div></div>
+    <div class="stat-card"><div class="stat-label">TUẦN TỐT ≥80%</div><div class="stat-val" id="statGoodWeeks">0</div><div class="stat-sub">tuần</div></div>
+    <div class="stat-card"><div class="stat-label">NGÀY CÒN LẠI</div><div class="stat-val" id="statDaysLeft">0</div><div class="stat-sub">đến 28/02/2027</div></div>
+  </div>
+  <div class="skill-bars">
+    <h3>Ước tính phát triển kỹ năng (dựa trên tasks hoàn thành)</h3>
+    <div class="skill-row"><span class="skill-name">Listening</span><div class="skill-track"><div class="skill-fill" id="bar-listening" style="background:#8B4A9C;width:0%"></div></div><span class="skill-pct" id="pct-listening">0%</span></div>
+    <div class="skill-row"><span class="skill-name">Speaking</span><div class="skill-track"><div class="skill-fill" id="bar-speaking" style="background:#C85A2A;width:0%"></div></div><span class="skill-pct" id="pct-speaking">0%</span></div>
+    <div class="skill-row"><span class="skill-name">Reading</span><div class="skill-track"><div class="skill-fill" id="bar-reading" style="background:#2E6DA4;width:0%"></div></div><span class="skill-pct" id="pct-reading">0%</span></div>
+    <div class="skill-row"><span class="skill-name">Vocabulary</span><div class="skill-track"><div class="skill-fill" id="bar-vocab" style="background:#B5460E;width:0%"></div></div><span class="skill-pct" id="pct-vocab">0%</span></div>
+    <div class="skill-row"><span class="skill-name">Test skills</span><div class="skill-track"><div class="skill-fill" id="bar-test" style="background:#3B7A57;width:0%"></div></div><span class="skill-pct" id="pct-test">0%</span></div>
+  </div>
+</section>
+<section id="tab-tools" class="section">
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-name">🎧 Daily Dictation</div><div class="tool-tag">DICTATION · T2 TỐI + T7 10:00</div><div class="tool-desc">Nghe và gõ lại từng câu. TOEIC, BBC, đa level. Chủ lực cho T2 tối và T7 10:00-10:45.</div><a class="tool-link" href="https://dailydictation.com" target="_blank">dailydictation.com →</a></div>
+    <div class="tool-card"><div class="tool-name">📖 ReadTheory</div><div class="tool-tag">READING · T6 TỐI / T7 SÁNG</div><div class="tool-desc">Đọc comprehension tự điều chỉnh độ khó. Track progress. T6 tối hoặc T7 sáng từ 10:00.</div><a class="tool-link" href="https://readtheoryapp.com" target="_blank">readtheoryapp.com →</a></div>
+    <div class="tool-card"><div class="tool-name">📝 STUDY4</div><div class="tool-tag">MOCK TEST · T7 10:45</div><div class="tool-desc">Thi thử TOEIC/IELTS full đề thật. T7 sáng 10:45 sau dictation. Đo điểm thực tế hàng tháng.</div><a class="tool-link" href="https://study4.com" target="_blank">study4.com →</a></div>
+    <div class="tool-card"><div class="tool-name">🔊 YouGlish</div><div class="tool-tag">PRONUNCIATION · SAU LỚP T4</div><div class="tool-desc">Phát âm trong context YouTube thực tế. Check từ mới học T4 với cô giáo.</div><a class="tool-link" href="https://youglish.com" target="_blank">youglish.com →</a></div>
+    <div class="tool-card"><div class="tool-name">🤖 Gemini AI</div><div class="tool-tag">SPEAKING · T4/T6/CN</div><div class="tool-desc">Prompt: "Act as English partner. Ask IELTS Part 1 questions one by one, give feedback after each answer."</div><a class="tool-link" href="https://gemini.google.com" target="_blank">gemini.google.com →</a></div>
+    <div class="tool-card"><div class="tool-name">🎙 ELSA Speak</div><div class="tool-tag">PRONUNCIATION AI</div><div class="tool-desc">AI phân tích phát âm từng âm vị. Dùng bổ sung vào T6 tối khi muốn cải thiện accent.</div><a class="tool-link" href="https://elsaspeak.com" target="_blank">elsaspeak.com →</a></div>
+    <div class="tool-card"><div class="tool-name">🎵 Business English Pod</div><div class="tool-tag">BUSINESS · PHASE 2-3 · T3 TỐI</div><div class="tool-desc">Podcast tiếng Anh thương mại: meeting, negotiation, presentation. Từ Phase 2, T3 tối.</div><a class="tool-link" href="https://www.businessenglishpod.com" target="_blank">businessenglishpod.com →</a></div>
+    <div class="tool-card"><div class="tool-name">📻 BBC Learning English</div><div class="tool-tag">PASSIVE · T3 TỐI PHASE 1</div><div class="tool-desc">Podcast chuẩn BBC. Nghe khi ăn tối, không cần chú ý chủ động. Phase 1 T3 tối.</div><a class="tool-link" href="https://www.bbc.co.uk/learningenglish" target="_blank">bbc.co.uk/learningenglish →</a></div>
+  </div>
+</section>
+<section id="tab-notes" class="section">
+  <div style="margin-bottom:1rem;">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.35rem;margin-bottom:.4rem;">Ghi chú học tập</h2>
+    <p style="font-size:13px;color:var(--text2);">Từ mới, cấu trúc hay, reflection. Lưu tự động trong trình duyệt.</p>
+  </div>
+  <textarea class="notes-area" id="notesArea" placeholder="Ghi chú hôm nay...&#10;&#10;Ví dụ:&#10;- Từ mới: leverage (v) — tận dụng, khai thác&#10;- Cô giáo sửa: 'make decision' → 'make a decision'&#10;- Câu hay: 'I'd like to circle back on that point'&#10;- Vocab digital: stakeholder, OKR, roadmap, sprint"></textarea>
+  <button class="save-btn" onclick="saveNotes()">Lưu ghi chú</button>
+  <div id="saveMsg" style="font-size:12px;color:var(--done);margin-top:8px;display:none;">✓ Đã lưu!</div>
+</section>
+</div>
+</div>
+
+<!-- ══ SENIOR DIGITAL ══ -->
+<div class="module" id="mod-sdl">
+<div class="sdl-wrap">
+  <div class="sdl-hero"><h2>Lộ trình <em>Senior Digital Lead</em></h2><p>Digital Lead → Senior / Head of Digital · Ưu tiên 1: Sức khoẻ · Ưu tiên 2: Tiếng Anh B2 · SDL ~4h/tuần tập trung CN + tối các ngày nhẹ</p></div>
+
+  <div class="sdl-warn">
+    <strong>⚡ Lịch SDL đã cụ thể hoá — block như cuộc họp không thể huỷ:</strong><br>
+    • <strong>CN 08:00–09:30</strong> — Deep work: đọc 1 chương + viết 5 dòng takeaway tiếng Anh<br>
+    • <strong>CN 13:00–13:45</strong> — Đọc 1 bài HBR/McKinsey, gắn vấn đề thật ở công ty<br>
+    • <strong>T2 21:00–21:45</strong> — Review SDL + viết insight bằng tiếng Anh (sau giờ học Anh 20:00–21:00)<br>
+    • <strong>T4 tối 21:30–22:30</strong> — Tiếng Anh tự học (sau đó ngủ, không SDL T4 tối)<br>
+    • <strong>T6 21:30–22:15</strong> — SDL: viết proposal/brief 1 trang (sau học Anh 20:30–21:30)<br>
+    • <strong>T7 sau lớp: NGHỈ</strong> — Hardcore + Anh + lớp đã đủ nặng<br>
+    • <strong>T3 và T5: KHÔNG SDL</strong> — Đá banh về mệt, cortisol cao, học không vào
+  </div>
+
+  <div class="sdl-sch">
+    <div class="sdl-sh">Lịch research hàng tuần — output cụ thể mỗi buổi</div>
+    <div class="sdl-row"><span class="sdl-day">CN 8:00–9:30</span><span class="sdl-txt"><span class="sdl-bdg" style="background:#F4C0D1;color:#72243E">Deep Work</span>Đọc 1 chương sách chiến lược + highlight<small>Output: viết 5 dòng takeaway bằng tiếng Anh → kết hợp 2 mục tiêu</small></span><span class="sdl-time">1.5h · Slot vàng</span></div>
+    <div class="sdl-row"><span class="sdl-day">CN 13:00–13:45</span><span class="sdl-txt"><span class="sdl-bdg" style="background:#F4C0D1;color:#72243E">Apply</span>Đọc 1 bài HBR/McKinsey + áp dụng thực tế<small>Output: note 1 action item cụ thể cho công việc hiện tại</small></span><span class="sdl-time">45' · Thực chiến</span></div>
+    <div class="sdl-row"><span class="sdl-day">T2 21:00–21:45</span><span class="sdl-txt"><span class="sdl-bdg" style="background:#FAEEDA;color:#633806">Review</span>Viết insight tuần + ôn notes<small>Output: 1 đoạn văn tiếng Anh tóm tắt những gì học được</small></span><span class="sdl-time">45' · Kép: SDL+Anh</span></div>
+    <div class="sdl-row"><span class="sdl-day">T4 21:15–21:45</span><span class="sdl-txt"><span class="sdl-bdg" style="background:#B5D4F4;color:#0C447C">Article</span>Đọc 1–2 bài chuyên sâu<small>HBR, McKinsey Quarterly, Think With Google, Nielsen</small></span><span class="sdl-time">30' · Nhẹ</span></div>
+    <div class="sdl-row"><span class="sdl-day">T6 21:30–22:15</span><span class="sdl-txt"><span class="sdl-bdg" style="background:#F4C0D1;color:#72243E">Practice</span>Áp dụng framework vào thực tế<small>Output: 1-page proposal/brief cho vấn đề thật → tích luỹ portfolio</small></span><span class="sdl-time">45' · Quan trọng</span></div>
+    <div class="sdl-row" style="background:#F5F3EF"><span class="sdl-day" style="color:#B8B4A8">T7 sau lớp</span><span class="sdl-txt" style="color:#B8B4A8">Nghỉ hoàn toàn — không SDL<small style="color:#ccc">Hardcore + Anh + lớp = đủ nặng. Bảo vệ phục hồi.</small></span><span class="sdl-time" style="color:#ccc">Nghỉ ✓</span></div>
+  </div>
+
+  <!-- ── TRỤ 1 DETAIL ── -->
+  <div class="sec-lbl">Trụ 1 — Strategic Thinking · Tháng 4–7/2026</div>
+
+  <div style="background:#fff;border:1px solid #EDEBE6;border-radius:12px;overflow:hidden;margin-bottom:1rem">
+    <div style="background:#F5F3EF;border-bottom:1px solid #EDEBE6;padding:.75rem 1.1rem;display:flex;align-items:center;gap:.75rem">
+      <div style="width:28px;height:28px;border-radius:50%;background:#F4C0D1;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:#72243E;flex-shrink:0">1</div>
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#1A1614">Strategic Thinking</div>
+        <div style="font-size:11px;color:#A89B91;font-family:'DM Mono',monospace">Chuyển từ "làm giỏi" → "định hướng đúng" · Kết nối digital vào P&amp;L</div>
+      </div>
+    </div>
+
+    <!-- Sách theo tháng -->
+    <div style="padding:1rem 1.1rem;border-bottom:1px solid #EDEBE6">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.09em;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.75rem">SÁCH — ĐỌC THEO THỨ TỰ</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem">
+
+        <div style="border:1px solid #EDEBE6;border-radius:10px;padding:.85rem;border-left:3px solid #F4C0D1">
+          <div style="font-size:10px;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.35rem">THÁNG 4–5 · ĐỌC ĐẦU TIÊN</div>
+          <div style="font-size:13px;font-weight:600;color:#1A1614;font-style:italic">Good Strategy Bad Strategy</div>
+          <div style="font-size:12px;color:#888;margin-top:2px">Richard Rumelt · 2011</div>
+          <div style="font-size:12px;color:#5A544E;margin-top:.5rem;line-height:1.55">Cuốn quan trọng nhất. Dạy phân biệt strategy thật vs "strategic noise" — buzzwords không có substance. Sau khi đọc bạn sẽ thấy 80% strategy deck ở công ty là fake strategy.</div>
+          <div style="font-size:11px;color:#C85A2A;margin-top:.5rem;font-family:'DM Mono',monospace">Mua: Tiki · Shopee · Amazon → ~200k</div>
+          <div style="font-size:11px;color:#3B6D11;margin-top:3px;background:#EAF3DE;border-radius:6px;padding:4px 8px">Output: Viết lại strategy hiện tại của team digital theo framework Rumelt</div>
+        </div>
+
+        <div style="border:1px solid #EDEBE6;border-radius:10px;padding:.85rem;border-left:3px solid #F4C0D1">
+          <div style="font-size:10px;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.35rem">THÁNG 5–6 · ĐỌC THỨ HAI</div>
+          <div style="font-size:13px;font-weight:600;color:#1A1614;font-style:italic">Measure What Matters</div>
+          <div style="font-size:12px;color:#888;margin-top:2px">John Doerr · 2018 · OKR Framework</div>
+          <div style="font-size:12px;color:#5A544E;margin-top:.5rem;line-height:1.55">OKR — framework Google, Intel, Spotify dùng. Quan trọng khi bạn cần thuyết phục ban lãnh đạo về mục tiêu digital có thể đo lường được, không phải chỉ report traffic và clicks.</div>
+          <div style="font-size:11px;color:#C85A2A;margin-top:.5rem;font-family:'DM Mono',monospace">Mua: Tiki · có bản tiếng Việt "Đo lường những gì quan trọng"</div>
+          <div style="font-size:11px;color:#3B6D11;margin-top:3px;background:#EAF3DE;border-radius:6px;padding:4px 8px">Output: Set OKR thật cho Q3 của team digital theo đúng format</div>
+        </div>
+
+        <div style="border:1px solid #EDEBE6;border-radius:10px;padding:.85rem;border-left:3px solid #F4C0D1">
+          <div style="font-size:10px;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.35rem">THÁNG 7 · ĐỌC THỨ BA</div>
+          <div style="font-size:13px;font-weight:600;color:#1A1614;font-style:italic">Rewired</div>
+          <div style="font-size:12px;color:#888;margin-top:2px">McKinsey &amp; Company · 2023</div>
+          <div style="font-size:12px;color:#5A544E;margin-top:.5rem;line-height:1.55">Playbook về digital &amp; AI transformation từ góc nhìn lãnh đạo cấp cao. Viết bởi team McKinsey dựa trên hàng trăm case study thực tế. Phù hợp trình bày với C-level.</div>
+          <div style="font-size:11px;color:#C85A2A;margin-top:.5rem;font-family:'DM Mono',monospace">Amazon → ~$20 · Tóm tắt miễn phí: mckinsey.com/rewired</div>
+          <div style="font-size:11px;color:#3B6D11;margin-top:3px;background:#EAF3DE;border-radius:6px;padding:4px 8px">Output: Áp dụng 1 trong 5 capability domains vào kế hoạch digital hiện tại</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Nguồn đọc thường xuyên -->
+    <div style="padding:1rem 1.1rem;border-bottom:1px solid #EDEBE6">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.09em;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.75rem">ĐỌC THƯỜNG XUYÊN — MIỄN PHÍ</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.65rem">
+
+        <div style="background:#F5F3EF;border-radius:8px;padding:.75rem">
+          <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">McKinsey Insights</div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">Digital strategy, AI in marketing, growth. Đọc T4 tối — 1 article/tuần. Tìm tag "CMO" và "digital strategy".</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">mckinsey.com/featured-insights</div>
+        </div>
+
+        <div style="background:#F5F3EF;border-radius:8px;padding:.75rem">
+          <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">Think With Google</div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">AI in marketing, measurement, consumer insights. Đặc biệt mục "Future of Marketing" và "Data &amp; Measurement".</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">thinkwithgoogle.com</div>
+        </div>
+
+        <div style="background:#F5F3EF;border-radius:8px;padding:.75rem">
+          <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">HBR — Harvard Business Review</div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">3 bài miễn phí/tháng. Tìm: "digital transformation", "CMO", "marketing leadership". Dùng Incognito để đọc thêm.</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">hbr.org</div>
+        </div>
+
+        <div style="background:#F5F3EF;border-radius:8px;padding:.75rem">
+          <div style="font-size:12px;font-weight:700;color:#1A1614;margin-bottom:3px">McKinsey Newsletter</div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">Đăng ký "Leading Off" — newsletter về leadership + digital. Gửi email mỗi tuần, đọc 10 phút trong giờ ăn trưa.</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">mckinsey.com → Newsletter → miễn phí</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Podcast -->
+    <div style="padding:1rem 1.1rem">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.09em;color:#A89B91;font-family:'DM Mono',monospace;margin-bottom:.75rem">PODCAST — NGHE THỤ ĐỘNG (T3 SAU ĐÁ, T7 DI CHUYỂN)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.65rem">
+
+        <div style="border:1px solid #EDEBE6;border-radius:8px;padding:.75rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
+            <div style="width:8px;height:8px;border-radius:50%;background:#D4537E;flex-shrink:0"></div>
+            <div style="font-size:12px;font-weight:700;color:#1A1614">The McKinsey Podcast</div>
+          </div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">Strategy, digital transformation, leadership. Tập ngắn 25–35 phút. Ưu tiên episode về CMO, digital growth, AI in business.</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">Spotify · Apple Podcasts · miễn phí</div>
+        </div>
+
+        <div style="border:1px solid #EDEBE6;border-radius:8px;padding:.75rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
+            <div style="width:8px;height:8px;border-radius:50%;background:#D4537E;flex-shrink:0"></div>
+            <div style="font-size:12px;font-weight:700;color:#1A1614">Masters of Scale</div>
+          </div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">Reid Hoffman (LinkedIn founder) phỏng vấn CEO, CMO về cách scale. Tư duy dài hạn và leadership trong digital business.</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">mastersofscale.com · Spotify</div>
+        </div>
+
+        <div style="border:1px solid #EDEBE6;border-radius:8px;padding:.75rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
+            <div style="width:8px;height:8px;border-radius:50%;background:#D4537E;flex-shrink:0"></div>
+            <div style="font-size:12px;font-weight:700;color:#1A1614">How I Built This</div>
+          </div>
+          <div style="font-size:11px;color:#6B6460;line-height:1.5;margin-bottom:.4rem">NPR · Guy Raz phỏng vấn founders về hành trình build digital business. Nghe để hiểu tư duy của người ra quyết định ở cấp cao nhất.</div>
+          <div style="font-size:11px;color:#C85A2A;font-family:'DM Mono',monospace">NPR · Spotify · Apple Podcasts</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TRỤ 2 & 3 COMPACT ── -->
+  <div class="sec-lbl">Trụ 2 & 3 — Tiếp theo sau Tháng 7</div>
+  <div class="sdl-pgrid">
+    <div class="sdl-card" style="border-top:3px solid #FAEEDA">
+      <div><div class="sdl-ct">2 · Leadership &amp; Stakeholders</div><div class="sdl-cs">Tháng 8–11/2026</div></div>
+      <div class="sdl-cd">Thuyết phục C-level bằng số liệu, manage team senior, present digital roadmap. Khoảng cách lớn nhất giữa Lead và Senior/Head.</div>
+      <ul class="sdl-rl">
+        <li><em>The Making of a Manager</em> — Julie Zhuo (Facebook Design VP)</li>
+        <li><em>Radical Candor</em> — Kim Scott · feedback thẳng không mất lòng</li>
+        <li><em>Start with Why</em> — Simon Sinek · trình bày strategy cho C-level</li>
+        <li>Podcast: <em>Lenny's Podcast</em> — product &amp; growth leadership</li>
+        <li>Thực hành: Executive summary 1 trang/tháng bằng tiếng Anh</li>
+      </ul>
+    </div>
+    <div class="sdl-card" style="border-top:3px solid #B5D4F4">
+      <div><div class="sdl-ct">3 · Digital Ecosystem Mastery</div><div class="sdl-cs">Tháng 12/2026–2/2027</div></div>
+      <div class="sdl-cd">AI in marketing, attribution modeling, growth loops, martech stack. Head of Digital cần nắm toàn hệ sinh thái — không chỉ giỏi 1 kênh.</div>
+      <ul class="sdl-rl">
+        <li><em>Hacking Growth</em> — Sean Ellis &amp; Morgan Brown · growth loops</li>
+        <li><em>Marketing 5.0</em> — Philip Kotler · AI era marketing strategy</li>
+        <li>Think With Google: AI &amp; automation in marketing</li>
+        <li>Nielsen IQ reports: nielseniq.com/insights · miễn phí</li>
+        <li>Thực hành: Audit toàn bộ martech stack đang dùng</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-lbl">Timeline 10 tháng</div>
+  <div class="tl-grid">
+    <div class="tl-card" style="border-top:3px solid #F4C0D1"><div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#72243E;margin-bottom:5px">Tháng 4–7</div><div style="font-size:12px;color:#6B5E54;line-height:1.55">Good Strategy Bad Strategy → OKR (Measure What Matters) → Rewired · 1 cuốn/1.5 tháng</div></div>
+    <div class="tl-card" style="border-top:3px solid #FAEEDA"><div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#633806;margin-bottom:5px">Tháng 8–11</div><div style="font-size:12px;color:#6B5E54;line-height:1.55">Making of a Manager → Radical Candor → Start with Why · Executive summary hàng tháng</div></div>
+    <div class="tl-card" style="border-top:3px solid #B5D4F4"><div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:#0C447C;margin-bottom:5px">Tháng 12–2/2027</div><div style="font-size:12px;color:#6B5E54;line-height:1.55">Hacking Growth → Marketing 5.0 · Audit martech stack · Portfolio case studies hoàn chỉnh</div></div>
+  </div>
+
+  <div class="sdl-footer"><strong style="color:#E8935A;display:block;margin-bottom:.4rem">💡 Nguyên tắc quan trọng nhất</strong>Đừng chỉ đọc — <strong>áp dụng ngay vào công việc thực tế</strong>. Mỗi tháng chọn 1 framework và dùng để giải quyết 1 vấn đề thật. Viết takeaway bằng tiếng Anh → kết hợp luôn 2 mục tiêu SDL + tiếng Anh. Sau 10 tháng có portfolio case studies thật — thứ phân biệt Senior với Lead khi phỏng vấn.</div>
+</div>
+</div>
+
+<!-- ══ SINGLE MERGED SCRIPT ══ -->
 <script>
+// ── MODULE SWITCHER ──
+function showMod(id,btn){
+  document.querySelectorAll('.module').forEach(m=>m.classList.remove('on'));
+  document.querySelectorAll('.mnb').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  if(btn)btn.classList.add('on');
+}
+
+// ── ENGLISH SUB-TAB SWITCHER ──
+function showEngTab(id,btn){
+  document.querySelectorAll('#mod-eng .section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.etab-btn').forEach(b=>{b.classList.remove('etab-active');});
+  const el=document.getElementById('tab-'+id);
+  if(el)el.classList.add('active');
+  if(btn)btn.classList.add('etab-active');
+  if(id==='stats')updateProgress();
+}
+
+// ── HEALTH PANEL SWITCHERS ──
 function st(id){
-  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['ov','ml','wk','rd'][i]===id));
-  document.querySelectorAll('.pnl').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+  document.querySelectorAll('#mod-health .nb').forEach((b,i)=>b.classList.toggle('on',['ov','ml','wk','rd'][i]===id));
+  document.querySelectorAll('#mod-health .pnl').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
 }
 function sm(id){
   var ids=['a-t2','a-t3','a-t4','a-t5','a-t6','a-t7','a-cn'];
@@ -520,6 +1396,358 @@ function sw(id){
   document.querySelectorAll('#p-wk .stb').forEach((b,i)=>b.classList.toggle('on',ids[i]===id));
   document.querySelectorAll('#p-wk .sp').forEach(p=>p.classList.toggle('on',p.id===id));
 }
+
+// ── NOTES ──
+function saveNotes(){
+  const el=document.getElementById('notesArea');
+  if(!el)return;
+  localStorage.setItem('eng_notes',el.value);
+  const m=document.getElementById('saveMsg');
+  if(m){m.style.display='block';setTimeout(()=>m.style.display='none',2000);}
+}
+
+// ── ENGLISH TRACKER CORE (no duplicate declarations) ──
+// ── CONSTANTS ──
+const START_DATE = new Date(2026, 3, 6);   // 6 Apr 2026
+const END_DATE   = new Date(2027, 1, 28);  // 28 Feb 2027
+const PH_COL   = { 1:'#3B7A57', 2:'#2E6DA4', 3:'#8B4A9C', 4:'#B5460E' };
+const PH_NAME  = { 1:'Foundation', 2:'Consolidation', 3:'Bridge to B2', 4:'Interview Ready' };
+const TYPE_TC  = { dictation:'tc-dictation', listening:'tc-listening', speaking:'tc-speaking', reading:'tc-reading', vocab:'tc-vocab', test:'tc-test', class:'tc-class' };
+
+function getPhase(d) {
+  if (d < new Date(2026,6,1))  return 1;
+  if (d < new Date(2026,9,1))  return 2;
+  if (d < new Date(2027,0,1))  return 3;
+  return 4;
+}
+
+// ── SCHEDULE: 0=Mon … 6=Sun ──
+// T6 (idx=4): học 20:30-21:30, KHÔNG nghỉ
+// T7 (idx=5): bắt đầu từ 10:00 (chăm con buổi sáng sớm)
+const DAYS = [
+  { name:'Thứ Hai', isClass:false, tasks: p => [
+      p<=2
+        ? { name:'Daily Dictation TOEIC', detail:p===1?'Level B1 — 15 phút, nghe và gõ lại câu':'Level B2 — 15 phút nâng cao', time:'20:00–21:00', link:'https://dailydictation.com', type:'dictation' }
+        : { name:'Business Vocabulary', detail:'Digital lead vocab: strategy, OKR, roadmap, stakeholder, sprint', time:'20:00–21:00', link:'https://www.businessenglishpod.com', type:'vocab' },
+      p===4
+        ? { name:'AI Mock Interview prep', detail:'Prompt: "Interview me for Digital Lead. Ask 3 behavioral questions, give feedback"', time:'20:30–21:00', link:'https://gemini.google.com', type:'speaking' }
+        : { name:p<=2?'Vocab — Listening Lessons':'Vocab review + Anki', detail:p<=2?'Từ vựng theo chủ đề B1→B2':'Ôn vocab tuần, note Anki cards', time:'20:30–21:00', link:'https://www.listenaminute.com', type:'vocab' }
+  ]},
+  { name:'Thứ Ba ⚽', isClass:false, tasks: p => [
+      // Đá banh 18:00 → về ~20:00 → chỉ học được 21:30, ngắn và nhẹ
+      { name:'Passive Listening (nhẹ)', detail:p===1?'BBC / Comedy — nghe thụ động khi đang nghỉ sau đá, không cần tập trung':p===2?'Business English Pod 1 tập ngắn — nghe thụ động':p===3?'Lex Fridman / HIBT — nghe 1 đoạn':'Tech podcast ngắn', time:'21:30–22:00', link:p<=1?'https://www.bbc.co.uk/learningenglish':'https://www.businessenglishpod.com', type:'listening' }
+  ]},
+  { name:'Thứ Tư ★', isClass:true, tasks: p => [
+      { name:'Lớp giao tiếp với cô giáo', detail:'9:30–10:30 sáng (theo lịch cô giáo)', time:'09:30–10:30', link:'', type:'class' },
+      p<=2
+        ? { name:'Review + AI Speaking', detail:'Ôn lại nội dung bài + luyện với Gemini AI', time:'21:30–22:00', link:'https://gemini.google.com', type:'speaking' }
+        : { name:p===3?'Present ideas in English':'Mock interview prep', detail:p===3?'Trình bày 1 ý tưởng work 3 phút → record → nghe lại':'Chuẩn bị câu hỏi interview cho T6', time:'21:30–22:00', link:'', type:'speaking' }
+  ]},
+  { name:'Thứ Năm ⚽', isClass:false, tasks: p => [
+      // Đá banh 19:30 → về ~21:30 → quá mệt, không học được
+  ]},
+  // T6: học 20:30–21:30 (T5 nghỉ vì đá banh → dời Reading sang T6)
+  { name:'Thứ Sáu', isClass:false, tasks: p => [
+      // Reading dời từ T5 sang T6 vì T5 đá banh 19:30 về muộn
+      p<=2
+        ? { name:'Reading — ReadTheory', detail:'Đọc 2-3 bài B1→B2, ghi vocab mới vào Ghi chú', time:'20:30–21:00', link:'https://readtheoryapp.com', type:'reading' }
+        : p===3
+        ? { name:'ReadTheory B2 + Tech Articles', detail:'ReadTheory B2 + 1 bài TechCrunch/HBR', time:'20:30–21:00', link:'https://readtheoryapp.com', type:'reading' }
+        : { name:'ReadTheory B2+ + Leadership', detail:'ReadTheory B2+ + bài về leadership/digital strategy', time:'20:30–21:30', link:'https://readtheoryapp.com', type:'reading' },
+      p<=2
+        ? { name:'AI Speaking — IELTS Part 1', detail:'Gemini: "Give me IELTS Part 1 questions one by one, give feedback"', time:'21:30–22:15', link:'https://gemini.google.com', type:'speaking' }
+        : p===3
+        ? { name:'Meeting role-play với AI', detail:'Prompt: "Simulate a team meeting. I am Digital Lead. Give me discussion topics"', time:'21:30–22:15', link:'https://gemini.google.com', type:'speaking' }
+        : { name:'Full Mock Interview 30\'', detail:'Simulate Digital Lead interview — record lại và review sau', time:'21:30–22:15', link:'https://gemini.google.com', type:'speaking' }
+  ]},
+  // T7: 10:00 vì sáng chăm con
+  { name:'Thứ Bảy ★', isClass:true, tasks: p => [
+      p<=2
+        ? { name:'Daily Dictation 45\'', detail:'Dictation tổng ôn B1-B2 — không bỏ sót', time:'10:00–10:45', link:'https://dailydictation.com', type:'dictation' }
+        : { name:p===3?'IELTS Practice Test':'Mock interview + AI', detail:p===3?'Listening + Reading section từ đề thi thật':'Simulate full interview, note điểm yếu', time:'10:00–11:30', link:'https://study4.com', type:'test' },
+      p<=2
+        ? { name:'STUDY4 Mock Test 45\'', detail:'TOEIC mini full test — đo điểm, phân tích lỗi sau', time:'10:45–11:30', link:'https://study4.com', type:'test' }
+        : { name:'Review + Improve', detail:'Review lỗi test / note điểm cần cải thiện tuần sau', time:'11:30–12:00', link:'', type:'test' },
+      { name:'Lớp giao tiếp với cô giáo', detail:'15:00–16:00', time:'15:00–16:00', link:'', type:'class' }
+  ]},
+  { name:'Chủ Nhật ★', isClass:true, tasks: p => [
+      { name:'Lớp giao tiếp với cô giáo', detail:'15:00–16:30 (lớp dài nhất tuần)', time:'15:00–16:30', link:'', type:'class' },
+      p<=2
+        ? { name:'AI Speaking IELTS Part 1-2', detail:'AI: "Give me IELTS Part 1 & 2 questions. After each answer give 2 tips to improve"', time:'17:00–17:30', link:'https://gemini.google.com', type:'speaking' }
+        : { name:p===3?'Shadowing + Presentation':'Debrief + next week plan', detail:p===3?'Shadowing podcast 15\' + record 1 topic presentation':'Review tuần, đặt mục tiêu tuần sau', time:'17:00–17:30', link:'', type:'speaking' }
+  ]}
+];
+
+// ── STATE ──
+// weekOffset 0 = tuần hiện tại. Nếu hôm nay trước 6/4/2026 thì tính số tuần để về đúng start
+function calcInitialOffset() {
+  const t = new Date(); t.setHours(0,0,0,0);
+  // If today is before START_DATE, offset to show START_DATE's week
+  if (t < START_DATE) {
+    const diff = START_DATE - t;
+    return Math.ceil(diff / (7*86400000));
+  }
+  return 0;
+}
+let weekOffset = calcInitialOffset();
+function loadData()  { try { return JSON.parse(localStorage.getItem('eng3')||'{}'); } catch { return {}; } }
+function saveData(d) { localStorage.setItem('eng3', JSON.stringify(d)); }
+function tKey(date, di, ti) { return `${date.toISOString().slice(0,10)}_${di}_${ti}`; }
+
+function getWeekMon(offset) {
+  // Anchor: tuần 0 = tuần chứa hôm nay, nhưng không cho về trước 6/4/2026
+  const t = new Date(); t.setHours(0,0,0,0);
+  const dow = t.getDay();
+  const mon = new Date(t);
+  mon.setDate(t.getDate() - (dow===0?6:dow-1) + offset*7);
+  // Clamp: không lùi trước START_DATE (6 Apr 2026 là Monday)
+  if (mon < START_DATE) return new Date(START_DATE);
+  return mon;
+}
+
+// ── RENDER ──
+function renderWeek() {
+  const mon = getWeekMon(weekOffset);
+  const sun = new Date(mon); sun.setDate(mon.getDate()+6);
+  const todayStr = new Date().toISOString().slice(0,10);
+  const data = loadData();
+  const phase = getPhase(mon);
+  const phCol = PH_COL[phase];
+
+  // Disable prev button if already at START_DATE week
+  const prevBtn = gel('prevBtn');
+  if (prevBtn) {
+    const atStart = mon <= START_DATE;
+    prevBtn.disabled = atStart;
+    prevBtn.style.opacity = atStart ? '0.35' : '1';
+    prevBtn.style.cursor = atStart ? 'not-allowed' : 'pointer';
+  }
+  const fmt = d => d.toLocaleDateString('vi-VN',{day:'numeric',month:'short'});
+  gel('weekTitle').textContent = `${fmt(mon)} – ${fmt(sun)}, ${mon.getFullYear()}`;
+  const wpl = gel('weekPhaseLabel');
+  wpl.textContent = `Phase ${phase} · ${PH_NAME[phase]}`;
+  wpl.style.color = phCol;
+
+  let wTotal=0, wDone=0;
+  const dayDones=[];
+  const grid = gel('daysGrid');
+  grid.innerHTML='';
+
+  for (let d=0; d<7; d++) {
+    const date = new Date(mon); date.setDate(mon.getDate()+d);
+    const dateStr = date.toISOString().slice(0,10);
+    const isToday = dateStr===todayStr;
+    const dayDef = DAYS[d];
+    const tasks = dayDef.tasks(phase);
+
+    let dDone=0;
+    tasks.forEach((_,ti)=>{ if(data[tKey(date,d,ti)]) dDone++; });
+    dayDones.push({done:dDone,total:tasks.length});
+    wTotal+=tasks.length; wDone+=dDone;
+    const allDone = tasks.length>0 && dDone===tasks.length;
+
+    const card = document.createElement('div');
+    card.className='day-card'+(isToday?' is-today':'')+(allDone?' all-done':'');
+
+    // header
+    const hdr=document.createElement('div'); hdr.className='day-header';
+    hdr.innerHTML=`
+      <span class="day-name">${dayDef.name}</span>
+      <span class="day-date">${date.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'})}</span>
+      ${isToday?'<span class="badge badge-today">HÔM NAY</span>':''}
+      ${dayDef.isClass?'<span class="badge badge-class">★ CLASS</span>':''}
+      <span class="badge badge-phase" style="background:${phCol}22;color:${phCol}">P${phase}</span>
+    `;
+    card.appendChild(hdr);
+
+    // per-day progress
+    if (tasks.length>0) {
+      const pct=Math.round(dDone/tasks.length*100);
+      const dp=document.createElement('div'); dp.className='day-progress';
+      dp.innerHTML=`<div class="day-prog-bar-wrap"><div class="day-prog-bar" style="width:${pct}%;background:${pctColor(pct)}"></div></div><span class="day-prog-txt" style="color:${pctColor(pct)}">${dDone}/${tasks.length} · ${pct}%</span>`;
+      card.appendChild(dp);
+    }
+
+    // tasks
+    const body=document.createElement('div'); body.className='day-body';
+    if (tasks.length===0) {
+      const restMsg = d===4 ? "⚽ Thứ Năm — Đá banh 19:30, về ~21:30. Nghỉ học, phục hồi thể lực." : "Không có tasks hôm nay — nghỉ ngơi.";
+      body.innerHTML=`<p class="rest-note">${restMsg}</p>`;
+    } else {
+      tasks.forEach((task,ti)=>{
+        const key=tKey(date,d,ti); const done=!!data[key];
+        const row=document.createElement('div'); row.className='task-row';
+        row.innerHTML=`
+          <div class="task-check ${done?'checked':''}" data-key="${key}"></div>
+          <div class="task-info">
+            <div class="task-name ${done?'crossed':''}"><span class="ttype ${TYPE_TC[task.type]||'tc-test'}">${task.type}</span>${task.name}</div>
+            <div class="task-detail">${task.detail}</div>
+            ${task.link?`<a class="task-link" href="${task.link}" target="_blank">${task.link.replace(/https?:\/\//,'').split('/')[0]} →</a>`:''}
+          </div>
+          <div class="task-time">${task.time}</div>`;
+        row.querySelector('.task-check').addEventListener('click',()=>toggle(key));
+        body.appendChild(row);
+      });
+    }
+    card.appendChild(body);
+    grid.appendChild(card);
+  }
+
+  // week summary bar — gradient đỏ→vàng→xanh theo %
+  const wPct = wTotal>0?Math.round(wDone/wTotal*100):0;
+  function pctColor(p){
+    // interpolate: 0%=đỏ #E24B4A, 50%=vàng #EF9F27, 100%=xanh #3B7A57
+    if(p<=50){
+      const t=p/50;
+      const r=Math.round(226+(239-226)*t);
+      const g=Math.round(75+(159-75)*t);
+      const b=Math.round(74+(39-74)*t);
+      return `rgb(${r},${g},${b})`;
+    } else {
+      const t=(p-50)/50;
+      const r=Math.round(239+(59-239)*t);
+      const g=Math.round(159+(122-159)*t);
+      const b=Math.round(39+(87-39)*t);
+      return `rgb(${r},${g},${b})`;
+    }
+  }
+  const barColor=pctColor(wPct);
+  const pctEl=gel('wsSummaryPct');
+  if(pctEl){pctEl.textContent=wPct+'%'; pctEl.style.color=barColor;}
+  const bar=gel('wsSummaryBar');
+  if(bar){bar.style.width=wPct+'%'; bar.style.background=barColor;}
+  const stEl=gel('wsSummaryText');
+  if(stEl)stEl.textContent=wDone+'/'+wTotal+' tasks';
+
+  // dots
+  const dots=gel('weekDots'); dots.innerHTML='';
+  dayDones.forEach(dd=>{
+    const dot=document.createElement('div');
+    const cls=dd.total===0?'':dd.done===dd.total?' on':dd.done>0?' partial':' off';
+    dot.className='ws-dot'+cls; dot.title=`${dd.done}/${dd.total}`;
+    dots.appendChild(dot);
+  });
+
+  updateProgress(data);
+}
+
+function toggle(key) {
+  const data=loadData(); data[key]=!data[key]; saveData(data); renderWeek();
+}
+function prevWeek(){
+  const prev = getWeekMon(weekOffset - 1);
+  if (prev < START_DATE) return;
+  weekOffset--;
+  renderWeek();
+}
+function nextWeek(){weekOffset++;renderWeek();}
+
+// ── SAFE getElementById ──
+function gel(id){return document.getElementById(id);}
+function setText(id,val){const el=gel(id);if(el)el.textContent=val;}
+function setWidth(id,val){const el=gel(id);if(el)el.style.width=val;}
+
+// ── PROGRESS ──
+function updateProgress(data){
+  data=data||loadData();
+  const today=new Date(); today.setHours(0,0,0,0);
+  // Dùng ngày lớn hơn giữa hôm nay và END_DATE của tuần đang xem
+  // để không bỏ sót tasks đã tick ở tuần tương lai (khi app mở trước START_DATE)
+  const viewMon=getWeekMon(weekOffset);
+  const viewSun=new Date(viewMon); viewSun.setDate(viewMon.getDate()+6);
+  const countUpto=viewSun>today?viewSun:today; // tính đến cuối tuần đang xem
+
+  let oT=0,oD=0;
+  let cur=new Date(START_DATE);
+  while(cur<=countUpto&&cur<=END_DATE){
+    const dow=(cur.getDay()+6)%7;
+    DAYS[dow].tasks(getPhase(cur)).forEach((_,ti)=>{oT++;if(data[tKey(cur,dow,ti)])oD++;});
+    cur.setDate(cur.getDate()+1);
+  }
+  const oPct=oT>0?Math.round(oD/oT*100):0;
+  setText('overallPct',oPct+'%');
+  setText('overallDone',oD+'/'+oT+' tasks');
+  setWidth('overallBar',oPct+'%');
+
+  // Tuần header: luôn tính toàn bộ tuần đang xem (không giới hạn "đến hôm nay")
+  const mon=getWeekMon(weekOffset);
+  let wT=0,wD=0;
+  for(let d=0;d<7;d++){
+    const date=new Date(mon);date.setDate(mon.getDate()+d);
+    if(date>END_DATE)continue;
+    DAYS[d].tasks(getPhase(date)).forEach((_,ti)=>{wT++;if(data[tKey(date,d,ti)])wD++;});
+  }
+  const wPct=wT>0?Math.round(wD/wT*100):0;
+  setText('weekPct',wPct+'%');
+  setText('weekDone',wD+'/'+wT+' tasks');
+  setWidth('weekBar',wPct+'%');
+
+  let streak=0; const cd=new Date(today);
+  for(let i=0;i<365;i++){
+    const dow=(cd.getDay()+6)%7;
+    const tasks=DAYS[dow].tasks(getPhase(cd));
+    if(tasks.length===0){cd.setDate(cd.getDate()-1);continue;}
+    if(tasks.every((_,ti)=>data[tKey(cd,dow,ti)])){streak++;cd.setDate(cd.getDate()-1);}else break;
+  }
+  setText('streakVal',streak);
+  const p=getPhase(today);
+  setText('phaseVal',p);
+  setText('phaseSub',PH_NAME[p]);
+
+  setText('statTotal',oD);
+  setText('statTotalOf',oT);
+  setText('statStreak',streak);
+  setText('statDaysLeft',Math.max(0,Math.ceil((END_DATE-today)/86400000)));
+
+  const sc={};['listening','speaking','reading','vocab','test'].forEach(t=>sc[t]={d:0,t:0});
+  let cur2=new Date(START_DATE);
+  while(cur2<=today&&cur2<=END_DATE){
+    const dow=(cur2.getDay()+6)%7;
+    DAYS[dow].tasks(getPhase(cur2)).forEach((task,ti)=>{
+      if(sc[task.type]){sc[task.type].t++;if(data[tKey(cur2,dow,ti)])sc[task.type].d++;}
+    });
+    cur2.setDate(cur2.getDate()+1);
+  }
+  Object.entries(sc).forEach(([tp,v])=>{
+    const pct=v.t>0?Math.round(v.d/v.t*100):0;
+    setWidth('bar-'+tp,pct+'%');
+    setText('pct-'+tp,pct+'%');
+  });
+
+  let gw=0;
+  for(let w=0;w<52;w++){
+    const ws=getWeekMon(-w);
+    let wt=0,wd=0;
+    for(let d=0;d<7;d++){
+      const date=new Date(ws);date.setDate(ws.getDate()+d);
+      if(date>today||date<START_DATE)continue;
+      DAYS[d].tasks(getPhase(date)).forEach((_,ti)=>{wt++;if(data[tKey(date,d,ti)])wd++;});
+    }
+    if(wt>0&&wd/wt>=0.8)gw++;
+  }
+  setText('statGoodWeeks',gw);
+}
+
+// ── INIT (single, runs once) ──
+document.addEventListener('DOMContentLoaded', function() {
+  // Today display
+  document.getElementById('mTod').textContent =
+    new Date().toLocaleDateString('vi-VN',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'});
+
+  // Notes
+  const notesEl = document.getElementById('notesArea');
+  if(notesEl){
+    const saved = localStorage.getItem('eng_notes');
+    if(saved) notesEl.value = saved;
+    notesEl.addEventListener('input',()=>{
+      clearTimeout(window._nt);
+      window._nt=setTimeout(saveNotes,1200);
+    });
+  }
+
+  // English tracker
+  if(typeof renderWeek === 'function') renderWeek();
+});
 </script>
 </body>
 </html>
