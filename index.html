@@ -1440,7 +1440,7 @@ function saveNotes(){
 
 // ── ENGLISH TRACKER CORE (no duplicate declarations) ──
 // ── CONSTANTS ──
-const START_DATE = new Date(2026, 3, 12);  // 12 Apr 2026
+const START_DATE = new Date(2026, 3, 20);  // 20 Apr 2026 — Thứ Hai
 const END_DATE   = new Date(2027, 1, 28);  // 28 Feb 2027
 const PH_COL   = { 1:'#3B7A57', 2:'#2E6DA4', 3:'#8B4A9C', 4:'#B5460E' };
 const PH_NAME  = { 1:'Foundation', 2:'Consolidation', 3:'Bridge to B2', 4:'Interview Ready' };
@@ -1458,55 +1458,61 @@ function getPhase(d) {
 // T7 (idx=5): bắt đầu từ 10:00 (chăm con buổi sáng sớm)
 const DAYS = [
   { name:'Thứ Hai', isClass:false, tasks: p => [
+      { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
+      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới trong checklist Vocab 600 → click YouGlish nghe người bản ngữ → luyện nói lại', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
       p<=2
-        ? { name:'Daily Dictation TOEIC', detail:p===1?'Level B1 — 15 phút, nghe và gõ lại câu':'Level B2 — 15 phút nâng cao', time:'9:00 PM–10:00 PM', link:'https://dailydictation.com', type:'dictation' }
-        : { name:'Business Vocabulary', detail:'Digital lead vocab: strategy, OKR, roadmap, stakeholder, sprint', time:'9:00 PM–10:00 PM', link:'https://www.businessenglishpod.com', type:'vocab' },
+        ? { name:'Daily Dictation TOEIC', detail:p===1?'Level B1 — 15 phút, nghe và gõ lại câu':'Level B2 — 15 phút nâng cao', time:'9:20 PM–10:00 PM', link:'https://dailydictation.com', type:'dictation' }
+        : { name:'Business Vocabulary', detail:'Digital lead vocab: strategy, OKR, roadmap, stakeholder, sprint', time:'9:20 PM–10:00 PM', link:'https://www.businessenglishpod.com', type:'vocab' },
       p===4
         ? { name:'AI Mock Interview prep', detail:'Prompt: "Interview me for Digital Lead. Ask 3 behavioral questions, give feedback"', time:'10:00 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
         : { name:p<=2?'Vocab — BBC Learning English':'Vocab review + Anki', detail:p<=2?'Từ vựng theo chủ đề B1→B2 qua BBC 6 Minute English':'Ôn vocab tuần, note Anki cards', time:'10:00 PM–10:30 PM', link:'https://www.bbc.co.uk/learningenglish/features/6-minute-english', type:'vocab' }
   ]},
   { name:'Thứ Ba ⚽', isClass:false, tasks: p => [
-      // Đá banh 18:00 → về ~20:00 → chỉ học được 21:30, ngắn và nhẹ
-      { name:'Passive Listening (nhẹ)', detail:p===1?'BBC / Comedy — nghe thụ động khi đang nghỉ sau đá, không cần tập trung':p===2?'Business English Pod 1 tập ngắn — nghe thụ động':p===3?'Lex Fridman / HIBT — nghe 1 đoạn':'Tech podcast ngắn', time:'9:00 PM–9:30 PM', link:p<=1?'https://www.bbc.co.uk/learningenglish':'https://www.businessenglishpod.com', type:'listening' }
+      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới trong checklist Vocab 600 → YouGlish → luyện nói lại (nhẹ sau đá)', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
+      { name:'Passive Listening (nhẹ)', detail:p===1?'BBC / Comedy — nghe thụ động khi đang nghỉ sau đá, không cần tập trung':p===2?'Business English Pod 1 tập ngắn — nghe thụ động':p===3?'Lex Fridman / HIBT — nghe 1 đoạn':'Tech podcast ngắn', time:'9:20 PM–9:50 PM', link:p<=1?'https://www.bbc.co.uk/learningenglish':'https://www.businessenglishpod.com', type:'listening' }
   ]},
   { name:'Thứ Tư ★', isClass:true, tasks: p => [
       { name:'Lớp giao tiếp với cô giáo', detail:'☀️ Buổi sáng — 9:30–10:30 AM (theo lịch cô giáo)', time:'9:30 AM–10:30 AM', link:'', type:'class' },
+      { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
+      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới → ưu tiên từ liên quan bài học cô giáo hôm nay → YouGlish', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
       p<=2
-        ? { name:'Review + AI Speaking', detail:'🌙 Buổi tối — Ôn lại nội dung bài + luyện với Gemini AI', time:'9:00 PM–10:00 PM', link:'https://gemini.google.com', type:'speaking' }
-        : { name:p===3?'Present ideas in English':'Mock interview prep', detail:p===3?'🌙 Buổi tối — Trình bày 1 ý tưởng work 3 phút → record → nghe lại':'🌙 Buổi tối — Chuẩn bị câu hỏi interview cho T6', time:'9:00 PM–10:00 PM', link:'', type:'speaking' }
+        ? { name:'Review + AI Speaking', detail:'🌙 Buổi tối — Ôn lại nội dung bài + luyện với Gemini AI', time:'9:20 PM–10:00 PM', link:'https://gemini.google.com', type:'speaking' }
+        : { name:p===3?'Present ideas in English':'Mock interview prep', detail:p===3?'🌙 Buổi tối — Trình bày 1 ý tưởng work 3 phút → record → nghe lại':'🌙 Buổi tối — Chuẩn bị câu hỏi interview cho T6', time:'9:20 PM–10:00 PM', link:'', type:'speaking' }
   ]},
   { name:'Thứ Năm ⚽', isClass:false, tasks: p => [
+      { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
       // Đá banh 19:30 → về ~21:30 → quá mệt, không học được
   ]},
-  // T6: học 20:30–21:30 (T5 nghỉ vì đá banh → dời Reading sang T6)
   { name:'Thứ Sáu', isClass:false, tasks: p => [
-      // Reading dời từ T5 sang T6 vì T5 đá banh 19:30 về muộn
+      { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
+      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới trong checklist Vocab 600 → YouGlish → thử dùng trong 1 câu nói', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
       p<=2
-        ? { name:'Reading — ReadTheory', detail:'Đọc 2-3 bài B1→B2, ghi vocab mới vào Ghi chú', time:'9:00 PM–9:30 PM', link:'https://readtheoryapp.com', type:'reading' }
+        ? { name:'Reading — ReadTheory', detail:'Đọc 2-3 bài B1→B2, ghi vocab mới vào Ghi chú', time:'9:20 PM–9:50 PM', link:'https://readtheoryapp.com', type:'reading' }
         : p===3
-        ? { name:'ReadTheory B2 + Tech Articles', detail:'ReadTheory B2 + 1 bài TechCrunch/HBR', time:'9:00 PM–9:30 PM', link:'https://readtheoryapp.com', type:'reading' }
-        : { name:'ReadTheory B2+ + Leadership', detail:'ReadTheory B2+ + bài về leadership/digital strategy', time:'9:00 PM–9:30 PM', link:'https://readtheoryapp.com', type:'reading' },
+        ? { name:'ReadTheory B2 + Tech Articles', detail:'ReadTheory B2 + 1 bài TechCrunch/HBR', time:'9:20 PM–9:50 PM', link:'https://readtheoryapp.com', type:'reading' }
+        : { name:'ReadTheory B2+ + Leadership', detail:'ReadTheory B2+ + bài về leadership/digital strategy', time:'9:20 PM–9:50 PM', link:'https://readtheoryapp.com', type:'reading' },
       p<=2
-        ? { name:'AI Speaking — IELTS Part 1', detail:'Gemini: "Give me IELTS Part 1 questions one by one, give feedback"', time:'9:30 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
+        ? { name:'AI Speaking — IELTS Part 1', detail:'Gemini: "Give me IELTS Part 1 questions one by one, give feedback"', time:'9:50 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
         : p===3
-        ? { name:'Meeting role-play với AI', detail:'Prompt: "Simulate a team meeting. I am Digital Lead. Give me discussion topics"', time:'9:30 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
-        : { name:'Full Mock Interview 30\'', detail:'Simulate Digital Lead interview — record lại và review sau', time:'9:30 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
+        ? { name:'Meeting role-play với AI', detail:'Prompt: "Simulate a team meeting. I am Digital Lead. Give me discussion topics"', time:'9:50 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
+        : { name:'Full Mock Interview 30\'', detail:'Simulate Digital Lead interview — record lại và review sau', time:'9:50 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
   ]},
-  // T7: 10:00 vì sáng chăm con
   { name:'Thứ Bảy ★', isClass:true, tasks: p => [
+      { name:'Vocab 600 — 4 từ/câu mới', detail:'Sáng có thời gian hơn — học 4 items mới → YouGlish từng từ → tự đặt câu với mỗi từ → tick checklist', time:'10:00 AM–10:30 AM', link:'', type:'vocab' },
       p<=2
-        ? { name:'Daily Dictation 45\'', detail:'Dictation tổng ôn B1-B2 — không bỏ sót', time:'10:00 AM–10:45 AM', link:'https://dailydictation.com', type:'dictation' }
-        : { name:p===3?'IELTS Practice Test':'Mock interview + AI', detail:p===3?'Listening + Reading section từ đề thi thật':'Simulate full interview, note điểm yếu', time:'10:00 AM–11:30 AM', link:'https://study4.com', type:'test' },
+        ? { name:'Daily Dictation 45\'', detail:'Dictation tổng ôn B1-B2 — không bỏ sót', time:'10:30 AM–11:15 AM', link:'https://dailydictation.com', type:'dictation' }
+        : { name:p===3?'IELTS Practice Test':'Mock interview + AI', detail:p===3?'Listening + Reading section từ đề thi thật':'Simulate full interview, note điểm yếu', time:'10:30 AM–12:00 PM', link:'https://study4.com', type:'test' },
       p<=2
-        ? { name:'STUDY4 Mock Test 45\'', detail:'TOEIC mini full test — đo điểm, phân tích lỗi sau', time:'10:45 AM–11:30 AM', link:'https://study4.com', type:'test' }
-        : { name:'Review + Improve', detail:'Review lỗi test / note điểm cần cải thiện tuần sau', time:'11:30 AM–12:00 PM', link:'', type:'test' },
+        ? { name:'STUDY4 Mock Test 45\'', detail:'TOEIC mini full test — đo điểm, phân tích lỗi sau', time:'11:15 AM–12:00 PM', link:'https://study4.com', type:'test' }
+        : { name:'Review + Improve', detail:'Review lỗi test / note điểm cần cải thiện tuần sau', time:'12:00 PM–12:30 PM', link:'', type:'test' },
       { name:'Lớp giao tiếp với cô giáo', detail:'15:00–16:00', time:'3:00 PM–4:00 PM', link:'', type:'class' }
   ]},
   { name:'Chủ Nhật ★', isClass:true, tasks: p => [
       { name:'Lớp giao tiếp với cô giáo', detail:'15:00–16:30 (lớp dài nhất tuần)', time:'3:00 PM–4:30 PM', link:'', type:'class' },
+      { name:'Vocab 600 — 4 từ/câu mới + ôn tuần', detail:'Học 4 items mới → sau đó ôn lại toàn bộ từ đã học trong tuần (nhẩm không nhìn) → tự kiểm tra', time:'5:00 PM–5:30 PM', link:'', type:'vocab' },
       p<=2
-        ? { name:'AI Speaking IELTS Part 1-2', detail:'AI: "Give me IELTS Part 1 & 2 questions. After each answer give 2 tips to improve"', time:'5:00 PM–5:30 PM', link:'https://gemini.google.com', type:'speaking' }
-        : { name:p===3?'Shadowing + Presentation':'Debrief + next week plan', detail:p===3?'Shadowing podcast 15\' + record 1 topic presentation':'Review tuần, đặt mục tiêu tuần sau', time:'5:00 PM–5:30 PM', link:'', type:'speaking' }
+        ? { name:'AI Speaking IELTS Part 1-2', detail:'AI: "Give me IELTS Part 1 & 2 questions. After each answer give 2 tips to improve"', time:'5:30 PM–6:00 PM', link:'https://gemini.google.com', type:'speaking' }
+        : { name:p===3?'Shadowing + Presentation':'Debrief + next week plan', detail:p===3?'Shadowing podcast 15\' + record 1 topic presentation':'Review tuần, đặt mục tiêu tuần sau', time:'5:30 PM–6:00 PM', link:'', type:'speaking' }
   ]}
 ];
 
@@ -1532,7 +1538,7 @@ function getWeekMon(offset) {
   const dow = t.getDay();
   const mon = new Date(t);
   mon.setDate(t.getDate() - (dow===0?6:dow-1) + offset*7);
-  // Clamp: không lùi trước START_DATE (12 Apr 2026 là Chủ Nhật)
+  // Clamp: không lùi trước START_DATE (20 Apr 2026 là Thứ Hai)
   if (mon < START_DATE) return new Date(START_DATE);
   return mon;
 }
