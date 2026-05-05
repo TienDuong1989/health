@@ -493,10 +493,10 @@ main { max-width:860px; margin:0 auto; padding:1.25rem 1rem 4rem; }
     <div class="day">
       <div class="day-hdr">THỨ TƯ ★ LỚP</div>
       <div class="ev"><span class="dot" style="background:#5DCAA5"></span>Tập Pull+Legs<span class="ev-time">6:30–7:20</span></div>
-      <div class="ev"><span class="dot" style="background:#EF9F27"></span>Lớp giao tiếp<span class="ev-time">9:30–10:30</span></div>
-      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">còn lại</span></div>
-      <div class="ev"><span class="dot" style="background:#378ADD"></span>Tiếng Anh review<span class="ev-time">20:30–21:00</span></div>
-      <div class="ev"><span class="dot" style="background:#D4537E"></span>Đọc article SDL<span class="ev-time">21:15–21:45</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Đi làm<span class="ev-time">8:00–19:00</span></div>
+      <div class="ev"><span class="dot" style="background:#378ADD"></span>Vocab trước lớp<span class="ev-time">21:00–21:25</span></div>
+      <div class="ev"><span class="dot" style="background:#EF9F27"></span>Lớp giao tiếp<span class="ev-time">21:30–22:30</span></div>
+      <div class="ev muted"><span class="dot" style="background:#D3D1C7"></span>Relax sau lớp<span class="ev-time">22:30+</span></div>
     </div>
 
     <div class="day ball">
@@ -1472,11 +1472,8 @@ const DAYS = [
   ]},
   { name:'Thứ Tư ★', isClass:true, tasks: p => [
       { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
-      { name:'Lớp giao tiếp với cô giáo', detail:'☀️ Buổi sáng — 9:30–10:30 AM (theo lịch cô giáo)', time:'9:30 AM–10:30 AM', link:'', type:'class' },
-      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới → ưu tiên từ liên quan bài học cô giáo hôm nay → YouGlish', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
-      p<=2
-        ? { name:'Review + AI Speaking', detail:'🌙 Buổi tối — Ôn lại nội dung bài + luyện với Gemini AI', time:'9:20 PM–10:00 PM', link:'https://gemini.google.com', type:'speaking' }
-        : { name:p===3?'Present ideas in English':'Mock interview prep', detail:p===3?'🌙 Buổi tối — Trình bày 1 ý tưởng work 3 phút → record → nghe lại':'🌙 Buổi tối — Chuẩn bị câu hỏi interview cho T6', time:'9:20 PM–10:00 PM', link:'', type:'speaking' }
+      { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối trước lớp — Học 2 items mới → YouGlish nghe phát âm → đặt câu. Xong trước 9:30', time:'9:00 PM–9:25 PM', link:'', type:'vocab' },
+      { name:'Lớp giao tiếp với cô giáo', detail:'🌙 Buổi tối — 9:30–10:30 PM (theo lịch cô giáo)', time:'9:30 PM–10:30 PM', link:'', type:'class' },
   ]},
   { name:'Thứ Năm ⚽', isClass:false, tasks: p => [
       { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
