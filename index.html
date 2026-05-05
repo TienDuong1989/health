@@ -641,7 +641,7 @@ main { max-width:860px; margin:0 auto; padding:1.25rem 1rem 4rem; }
 
   <!-- Passive listening note -->
   <div style="background:#EAF2FB;border:1px solid #B5D4F4;border-radius:10px;padding:.85rem 1.1rem;font-size:13px;color:#185FA5;line-height:1.65;margin-bottom:1rem">
-    <strong>Passive listening trên xe/máy bay = học tiếng Anh thực sự.</strong> Bật BBC Learning English, Business English Pod hoặc McKinsey Podcast khi di chuyển — không cần chú ý chủ động. Một chuyến 3h xe là 3h listening không tốn thêm thời gian.
+    <strong>Passive listening trên xe/máy bay = học tiếng Anh thực sự.</strong> Bật Daily Dictation, Business English Pod hoặc McKinsey Podcast khi di chuyển — không cần chú ý chủ động. Một chuyến 3h xe là 3h listening không tốn thêm thời gian.
   </div>
 
   <div style="background:#F5F3EF;border:1px solid #EDEBE6;border-radius:10px;padding:.85rem 1.25rem;font-size:13px;color:#6B6460;line-height:1.7">
@@ -1191,14 +1191,14 @@ main { max-width:860px; margin:0 auto; padding:1.25rem 1rem 4rem; }
 </section>
 <section id="tab-tools" class="section">
   <div class="tools-grid">
-    <div class="tool-card"><div class="tool-name">🎧 Daily Dictation</div><div class="tool-tag">DICTATION · T2 TỐI + T7 10:00</div><div class="tool-desc">Nghe và gõ lại từng câu. TOEIC, BBC, đa level. Chủ lực cho T2 tối và T7 10:00-10:45.</div><a class="tool-link" href="https://dailydictation.com" target="_blank">dailydictation.com →</a></div>
+    <div class="tool-card"><div class="tool-name">🎧 Daily Dictation</div><div class="tool-tag">DICTATION · T2 TỐI + T7 10:00</div><div class="tool-desc">Nghe và gõ lại từng câu. TOEIC, tin tức, đa level. Chủ lực cho T2 tối và T7 10:00-10:45.</div><a class="tool-link" href="https://dailydictation.com" target="_blank">dailydictation.com →</a></div>
     <div class="tool-card"><div class="tool-name">📖 ReadTheory</div><div class="tool-tag">READING · T6 TỐI / T7 SÁNG</div><div class="tool-desc">Đọc comprehension tự điều chỉnh độ khó. Track progress. T6 tối hoặc T7 sáng từ 10:00.</div><a class="tool-link" href="https://readtheoryapp.com" target="_blank">readtheoryapp.com →</a></div>
     <div class="tool-card"><div class="tool-name">📝 STUDY4</div><div class="tool-tag">MOCK TEST · T7 10:45</div><div class="tool-desc">Thi thử TOEIC/IELTS full đề thật. T7 sáng 10:45 sau dictation. Đo điểm thực tế hàng tháng.</div><a class="tool-link" href="https://study4.com" target="_blank">study4.com →</a></div>
     <div class="tool-card"><div class="tool-name">🔊 YouGlish</div><div class="tool-tag">PRONUNCIATION · SAU LỚP T4</div><div class="tool-desc">Phát âm trong context YouTube thực tế. Check từ mới học T4 với cô giáo.</div><a class="tool-link" href="https://youglish.com" target="_blank">youglish.com →</a></div>
     <div class="tool-card"><div class="tool-name">🤖 Gemini AI</div><div class="tool-tag">SPEAKING · T4/T6/CN</div><div class="tool-desc">Prompt: "Act as English partner. Ask IELTS Part 1 questions one by one, give feedback after each answer."</div><a class="tool-link" href="https://gemini.google.com" target="_blank">gemini.google.com →</a></div>
     <div class="tool-card"><div class="tool-name">🎙 ELSA Speak</div><div class="tool-tag">PRONUNCIATION AI</div><div class="tool-desc">AI phân tích phát âm từng âm vị. Dùng bổ sung vào T6 tối khi muốn cải thiện accent.</div><a class="tool-link" href="https://elsaspeak.com" target="_blank">elsaspeak.com →</a></div>
     <div class="tool-card"><div class="tool-name">🎵 Business English Pod</div><div class="tool-tag">BUSINESS · PHASE 2-3 · T3 TỐI</div><div class="tool-desc">Podcast tiếng Anh thương mại: meeting, negotiation, presentation. Từ Phase 2, T3 tối.</div><a class="tool-link" href="https://www.businessenglishpod.com" target="_blank">businessenglishpod.com →</a></div>
-    <div class="tool-card"><div class="tool-name">📻 BBC Learning English</div><div class="tool-tag">PASSIVE · T3 TỐI PHASE 1</div><div class="tool-desc">Podcast chuẩn BBC. Nghe khi ăn tối, không cần chú ý chủ động. Phase 1 T3 tối.</div><a class="tool-link" href="https://www.bbc.co.uk/learningenglish" target="_blank">bbc.co.uk/learningenglish →</a></div>
+    <div class="tool-card"><div class="tool-name">📻 Daily Dictation</div><div class="tool-tag">PASSIVE · T3 TỐI PHASE 1</div><div class="tool-desc">Nghe và luyện dictation chuẩn. Nhiều level, đa chủ đề. Phase 1 T3 tối.</div><a class="tool-link" href="https://dailydictation.com" target="_blank">dailydictation.com →</a></div>
   </div>
 </section>
 <section id="tab-notes" class="section">
@@ -1464,15 +1464,15 @@ const DAYS = [
         : { name:'Business Vocabulary', detail:'Digital lead vocab: strategy, OKR, roadmap, stakeholder, sprint', time:'9:20 PM–10:00 PM', link:'https://www.businessenglishpod.com', type:'vocab' },
       p===4
         ? { name:'AI Mock Interview prep', detail:'Prompt: "Interview me for Digital Lead. Ask 3 behavioral questions, give feedback"', time:'10:00 PM–10:30 PM', link:'https://gemini.google.com', type:'speaking' }
-        : { name:p<=2?'Vocab — BBC Learning English':'Vocab review + Anki', detail:p<=2?'Từ vựng theo chủ đề B1→B2 qua BBC 6 Minute English':'Ôn vocab tuần, note Anki cards', time:'10:00 PM–10:30 PM', link:'https://www.bbc.co.uk/learningenglish/features/6-minute-english', type:'vocab' }
+        : { name:p<=2?'AI Speaking — luyện lại câu vừa dictation':'Vocab review + Anki', detail:p<=2?'Gemini: đọc to lại câu vừa dictation → ghi âm → nghe lại. Luyện phát âm & intonation thực tế':'Ôn vocab tuần, note Anki cards', time:'10:00 PM–10:30 PM', link:p<=2?'https://gemini.google.com':'', type:p<=2?'speaking':'vocab' }
   ]},
   { name:'Thứ Ba ⚽', isClass:false, tasks: p => [
       { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới trong checklist Vocab 600 → YouGlish → luyện nói lại (nhẹ sau đá)', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
-      { name:'Passive Listening (nhẹ)', detail:p===1?'BBC / Comedy — nghe thụ động khi đang nghỉ sau đá, không cần tập trung':p===2?'Business English Pod 1 tập ngắn — nghe thụ động':p===3?'Lex Fridman / HIBT — nghe 1 đoạn':'Tech podcast ngắn', time:'9:20 PM–9:50 PM', link:p<=1?'https://www.bbc.co.uk/learningenglish':'https://www.businessenglishpod.com', type:'listening' }
+      { name:'Passive Listening (nhẹ)', detail:p===1?'Daily Dictation — nghe thụ động khi đang nghỉ sau đá, không cần tập trung':p===2?'Business English Pod 1 tập ngắn — nghe thụ động':p===3?'Lex Fridman / HIBT — nghe 1 đoạn':'Tech podcast ngắn', time:'9:20 PM–9:50 PM', link:p<=1?'https://dailydictation.com':'https://www.businessenglishpod.com', type:'listening' }
   ]},
   { name:'Thứ Tư ★', isClass:true, tasks: p => [
-      { name:'Lớp giao tiếp với cô giáo', detail:'☀️ Buổi sáng — 9:30–10:30 AM (theo lịch cô giáo)', time:'9:30 AM–10:30 AM', link:'', type:'class' },
       { name:'Vocab 600 — Ôn 2 từ hôm qua', detail:'☀️ Sáng trước đi làm (5 phút) — đọc lại 2 từ tối qua, tự nhẩm nghĩa, dùng thử trong 1 câu', time:'7:00 AM–7:05 AM', link:'', type:'vocab' },
+      { name:'Lớp giao tiếp với cô giáo', detail:'☀️ Buổi sáng — 9:30–10:30 AM (theo lịch cô giáo)', time:'9:30 AM–10:30 AM', link:'', type:'class' },
       { name:'Vocab 600 — 2 từ/câu mới', detail:'🌙 Tối — Học 2 items mới → ưu tiên từ liên quan bài học cô giáo hôm nay → YouGlish', time:'9:00 PM–9:20 PM', link:'', type:'vocab' },
       p<=2
         ? { name:'Review + AI Speaking', detail:'🌙 Buổi tối — Ôn lại nội dung bài + luyện với Gemini AI', time:'9:20 PM–10:00 PM', link:'https://gemini.google.com', type:'speaking' }
